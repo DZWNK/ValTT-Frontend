@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  signupDisplay = "none";
+  loginDisplay = "none";
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onLoginClick(): void{
+    console.log("Login Click");
+    this.loginDisplay = "block";
+  }
+
+  onSignupClick(): void{
+    console.log("Signup Click");
+    this.signupDisplay = "block";
   }
 
 }

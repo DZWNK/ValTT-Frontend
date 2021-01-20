@@ -13,21 +13,21 @@ import { TeamListComponent } from './team-list/team-list.component';
 import { TeamComponent } from './team/team.component';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'about', component: AboutComponent},
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
 
-  {path: 'profile/:id', component: ProfileComponent},
-  {path: 'profile/:id/favourites', component: FavouritesComponent},
-  {path: 'player/:id', component: PlayerComponent},
-  {path: 'team/:id', component: TeamComponent},
-  {path: 'event/:id', component: EventComponent},
-  {path: 'match/:id', component: MatchComponent},
+  { path: 'profile/:id', component: ProfileComponent },
+  { path: 'profile/:id/favourites', component: FavouritesComponent },
+  { path: 'player/:id', component: PlayerComponent },
+  { path: 'team/:id', component: TeamComponent },
+  { path: 'event/:id', component: EventComponent },
+  { path: 'match/:id', component: MatchComponent },
 
-  {path: 'team_list', component: TeamListComponent},
-  {path: 'event_list', component: EventListComponent},
+  { path: 'team_list', component: TeamListComponent },
+  { path: 'event_list', component: EventListComponent },
 
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent}
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
