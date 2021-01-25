@@ -13,16 +13,36 @@
     </nav>
 </div>
 <div class="dialog-box" [style.display]="signupDisplay">
-    <form class=dialog>
-        <a>Signup Form</a>
-        <button>Close</button>
-        <button>Submit</button>
-    </form>
+    <div class=dialog>
+        <form (ngSubmit)="onSignupSubmit()">
+            <a>Signup Form</a>
+            <div>
+                <label>Username</label>
+                <input type="text" name="username" id="username" [(ngModel)]="signupData.username">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" name="password" id="password" [(ngModel)]="signupData.password">
+            </div>
+            <button>Submit</button>
+        </form>
+        <button (click)="onSignupClose()">Close</button>
+    </div>
 </div>
 <div class="dialog-box" [style.display]="loginDisplay">
-    <form class=dialog>
-        <a>Login Form</a>
-        <button>Close</button>
-        <button>Submit</button>
-    </form>
+    <div class="dialog">
+        <form (ngSubmit)="onLoginSubmit()">
+            <a>Login Form</a>
+            <div>
+                <label>Username</label>
+                <input type="text" name="username" id="username" [(ngModel)]="loginData.username">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" name="password" id="password" [(ngModel)]="loginData.password">
+            </div>
+            <button>Submit</button>
+        </form>
+        <button (click)="onLoginClose()">Close</button>
+    </div>
 </div>
