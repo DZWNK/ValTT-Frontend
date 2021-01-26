@@ -1,1 +1,18 @@
-<p>signup works!</p>
+<p>Enter a unique username and a secure password to get started</p>
+<div class="dialog-box" [style.display]="signupDisplay">
+    <div class=dialog>
+        <form (ngSubmit)="onSignupSubmit()">
+            <a>Signup Form</a>
+            <div>
+                <label>Username</label>
+                <input type="text" name="username" id="username" [(ngModel)]="signupData.username">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" name="password" id="password" [(ngModel)]="signupData.password">
+            </div>
+            <button>Submit</button>
+        </form>
+        <button (click)="onSignupClose()">Close</button>
+    </div>
+</div>

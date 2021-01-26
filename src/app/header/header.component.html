@@ -5,13 +5,17 @@
             <li class="nav-link" routerLink="/about" routerLinkActive="active">About</li>
             <li class="nav-link" routerLink="/event_list" routerLinkActive="active">Events</li>
             <li class="nav-link" routerLink="/team_list" routerLinkActive="active">Teams</li>
-            <li class="nav-link" (click)="onLoginClick()">Login</li>
-            <li class="nav-link" (click)="onSignupClick()">Signup</li>
+            <!--<li class="nav-link" (click)="/LoginComponent.onLoginClick()">Login</li>-->
+            <!--<li class="nav-link" routerLink="/login" routerLinkActive="active">Login</li>-->
+            <li class="nav-link" routerLink="/login" routerLinkActive="active">Login</li>
+            <li class="nav-link" routerLink="/signup" routerLinkActive="active">Signup</li>
+            <!--<li class="nav-link" (click)="onSignupClick()">Signup</li>-->
             <li class="nav-link">Favourites</li>
             <li class="nav-link" routerLink='**' routerLinkActive="active">PageNotFound</li>
         </ul>
     </nav>
 </div>
+<!--
 <div class="dialog-box" [style.display]="signupDisplay">
     <div class=dialog>
         <form (ngSubmit)="onSignupSubmit()">
@@ -45,4 +49,4 @@
         </form>
         <button (click)="onLoginClose()">Close</button>
     </div>
-</div>
+</div>-->

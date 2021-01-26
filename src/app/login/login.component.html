@@ -1,1 +1,18 @@
-<p>login works!</p>
+<p>Enter your login details</p>
+<div class="dialog-box" [style.display]="loginDisplay">
+    <div class="dialog">
+        <form (ngSubmit)="onLoginSubmit()">
+            <a>Login Form</a>
+            <div>
+                <label>Username</label>
+                <input type="text" name="username" id="username" [(ngModel)]="loginData.username">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" name="password" id="password" [(ngModel)]="loginData.password">
+            </div>
+            <button>Submit</button>
+        </form>
+        <button (click)="onLoginClose()">Close</button>
+    </div>
+</div>
