@@ -56,7 +56,7 @@ export class HeaderComponent implements OnInit {
   onLoginSubmit(){
     console.log("login-submit");
     // Hookup data to API for handling
-    this.userManagerService.signup(this.loginData).subscribe(msg => {
+    this.userManagerService.signup(this.signupData).subscribe(msg => {
       console.log(msg);
     }, err => {
       console.log(err);
