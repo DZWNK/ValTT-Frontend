@@ -22,12 +22,18 @@ export class LoginComponent implements OnInit {
     this.onLoginClick();
     this.loginData = {
       username: "",
-      password: ""
+      email: "",
+      birthdate: "",
+      password: "",
+      confirmpassword: "",
     }
 
     this.signupData ={
       username: "",
+      email: "",
+      birthdate: "",
       password: "",
+      confirmpassword: "",
     }
   }
 
@@ -39,7 +45,10 @@ export class LoginComponent implements OnInit {
     this.loginDisplay = "none";
     this.loginData = {
       username: "",
-      password: ""
+      email: "",
+      birthdate: "",
+      password: "",
+      confirmpassword: "",
     }
   }
 

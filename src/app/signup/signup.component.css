@@ -1,3 +1,7 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body { padding: 20 px; }
+
 ul {
     list-style-type: none;
     overflow: hidden;

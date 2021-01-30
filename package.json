@@ -19,7 +19,13 @@
     "@angular/platform-browser": "~9.0.1",
     "@angular/platform-browser-dynamic": "~9.0.1",
     "@angular/router": "~9.0.1",
+    "@hapi/joi": "^17.1.1",
+    "bootstrap": "^4.6.0",
+    "forms-angular": "^0.12.0-beta.125",
+    "joi": "^17.3.0",
+    "jquery": "^3.5.1",
     "observable": "^2.1.4",
+    "password-validator": "^5.1.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
