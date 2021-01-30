@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Profile } from '../../models/Profile';
+import { loginProfile } from '../../models/loginProfile';
 import { UserManagerService } from '../user-manager.service';
 
 @Component({
@@ -9,11 +9,11 @@ import { UserManagerService } from '../user-manager.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  signupDisplay = "none";
+  //signupDisplay = "none";
   loginDisplay = "none";
   
-  loginData: Profile;
-  signupData: Profile;
+  loginData: loginProfile;
+  //signupData: Profile;
 
   constructor(private userManagerService: UserManagerService) { }
 
@@ -22,18 +22,7 @@ export class LoginComponent implements OnInit {
     this.onLoginClick();
     this.loginData = {
       username: "",
-      email: "",
-      birthdate: "",
       password: "",
-      confirmpassword: "",
-    }
-
-    this.signupData ={
-      username: "",
-      email: "",
-      birthdate: "",
-      password: "",
-      confirmpassword: "",
     }
   }
 
@@ -45,17 +34,19 @@ export class LoginComponent implements OnInit {
     this.loginDisplay = "none";
     this.loginData = {
       username: "",
-      email: "",
-      birthdate: "",
+      //email: "",
+      //birthdate: "",
       password: "",
-      confirmpassword: "",
+     // confirmpassword: "",
     }
   }
-
+// is this suppose to be calling login with loginData? i changed it cause it was calling signup with signup data
+// as was the signup component...
   onLoginSubmit(){
     console.log("login-submit");
+    console.log(this.loginData);
     // Hookup data to API for handling
-    this.userManagerService.signup(this.signupData).subscribe(msg => {
+    this.userManagerService.login(this.loginData).subscribe(msg => {
       console.log(msg);
     }, err => {
       console.log(err);

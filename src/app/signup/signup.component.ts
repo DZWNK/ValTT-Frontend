@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
   date = new Date();  
   maxDate = (new Date().getFullYear()).toString()+"-0"+(new Date().getMonth()+1).toString()+"-"+(new Date().getDate()).toString();
   signupDisplay = "none";
-  loginData: Profile;
+  //loginData: Profile;
   signupData: Profile;
 
   constructor(private userManagerService: UserManagerService) { 
@@ -22,13 +22,6 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.onSignupClick();
-    this.loginData = {
-      username: "",
-      email: "",
-      birthdate: "",
-      password: "",
-      confirmpassword: "",
-    }
 
     this.signupData ={
       username: "",
@@ -40,9 +33,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSignUp(form: NgForm) {
-
     console.log(form.value);
-
   }
 
   dateChange(event){
@@ -67,7 +58,8 @@ export class SignupComponent implements OnInit {
   onSignupSubmit(){
     console.log("signup-submit");
     // Hookup data to API for handling
-    this.userManagerService.login(this.loginData).subscribe(msg => {
+    console.log(this.signupData); // checking if we actually have the data after submitting
+    this.userManagerService.signup(this.signupData).subscribe(msg => {
       console.log(msg);
     }, err => {
       console.log(err);
