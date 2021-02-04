@@ -24,6 +24,7 @@
     "forms-angular": "^0.12.0-beta.125",
     "joi": "^17.3.0",
     "jquery": "^3.5.1",
+    "jsonwebtoken": "^8.5.1",
     "observable": "^2.1.4",
     "password-validator": "^5.1.1",
     "rxjs": "~6.5.4",

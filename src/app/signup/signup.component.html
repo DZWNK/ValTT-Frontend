@@ -33,7 +33,7 @@
 
             <div>
                 <label>Password: </label>
-                <input required minlength="4" maxlength="20" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,20}" ngModel name="password" #password="ngModel" type="text" id="password" [(ngModel)]="signupData.password">
+                <input required minlength="4" maxlength="20" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,20}" ngModel name="password" #password="ngModel" type="password" id="password" [(ngModel)]="signupData.password">
                 <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
                     <div *ngIf="password.errors.required"> A password is required.</div>
                     <div *ngIf="password.errors.pattern"> Your password must have one letter, one number and be between 4 and 20 characters long.</div>
@@ -42,13 +42,12 @@
 
             <div>
                 <label>Confirm Password: </label>
-                <input required minlength="4" maxlength="20" pattern="{{ password.value }}" ngModel name="confirmpassword" #confirmpassword="ngModel" type="text" id="confirmpassword" [(ngModel)]="signupData.confirmpassword">
+                <input required minlength="4" maxlength="20" pattern="{{ password.value }}" ngModel name="confirmpassword" #confirmpassword="ngModel" type="password" id="confirmpassword">
                 <div class="alert alert-danger" *ngIf="confirmpassword.touched && !confirmpassword.valid">
-                        <div *ngIf="confirmpassword.errors.required"> Confirming your password is required.</div>
+                        <div *ngIf="confirmpassword.errors.required"> Confirming your password is required. </div>
                         <div *ngIf="confirmpassword.errors.pattern"> The password you entered does not match. </div>
                 </div>
             </div>
-        
         
             <button>Submit</button>
         </form>

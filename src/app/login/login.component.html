@@ -8,14 +8,12 @@
                 <label>Username: </label>
                 <input required minlength="4" maxlength="12" ngModel name="username" #userName="ngModel" type="text" id="username" [(ngModel)]="loginData.username">
                 <div class="alert alert-danger" *ngIf="userName.touched && !userName.valid">A valid username is required.</div>
-                
             </div>
 
             <div>
                 <label>Password: </label>
-                <input required minlength="4" maxlength="20" ngModel name="password" #password="ngModel" type="text" id="password" [(ngModel)]="loginData.password">
+                <input required minlength="4" maxlength="20" ngModel name="password" #password="ngModel" type="password" id="password" [(ngModel)]="loginData.password">
                 <div class="alert alert-danger" *ngIf="password.touched && !password.valid"> A valid password is required.</div>
-                
             </div>
 
             <button>Submit</button>
