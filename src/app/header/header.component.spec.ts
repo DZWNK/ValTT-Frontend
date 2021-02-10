@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
+import { SignupComponent } from '../signup/signup.component';
+import { LoginComponent } from '../login/login.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;

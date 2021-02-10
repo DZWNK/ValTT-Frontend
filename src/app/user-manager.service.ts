@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Profile } from '../models/Profile';
+import { loginProfile } from '../models/loginProfile';
 
 const API_URL = 'https://agile-stream-35042.herokuapp.com/';
 
@@ -16,9 +17,15 @@ export class UserManagerService {
     console.log(profile);
     return this.http.post<any>('${API_URL}/api/signup', profile);
   }
-
+/*
   login(profile: Profile): Observable<any>{
     console.log(profile);
     return this.http.post<any>('${API_URL}/api/login', profile);  
   }
+}
+*/
+login(loginProfile: loginProfile): Observable<any>{
+  console.log(loginProfile);
+  return this.http.post<any>('${API_URL}/api/login', loginProfile);  
+}
 }

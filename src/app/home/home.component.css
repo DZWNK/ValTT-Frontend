@@ -1,0 +1,5 @@
+.image{
+    height:40em; background-size:contain; width:auto;
+    background-image:url('../../assets/img/OMEN.png');
+    background-position:50% 10%;
+}

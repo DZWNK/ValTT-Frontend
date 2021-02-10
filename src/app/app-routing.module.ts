@@ -11,6 +11,8 @@ import { PlayerComponent } from './player/player.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { TeamComponent } from './team/team.component';
+import { LoginComponent } from './login/login.component'; // added this and signup routes\
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,7 +24,8 @@ const routes: Routes = [
   { path: 'team/:id', component: TeamComponent },
   { path: 'event/:id', component: EventComponent },
   { path: 'match/:id', component: MatchComponent },
-
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'team_list', component: TeamListComponent },
   { path: 'event_list', component: EventListComponent },
 

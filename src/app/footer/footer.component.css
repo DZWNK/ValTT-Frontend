@@ -2,3 +2,15 @@ div.footer {
     background-color: #777777;
     padding: 8px;
 }
+li {
+    align-items: center;
+    color:#ffffff;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+ul {
+        text-align: center;
+        color:#ffffff;
+        text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  
+}

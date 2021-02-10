@@ -9,16 +9,17 @@ import { UserManagerService } from '../user-manager.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  /*
   signupDisplay = "none";
   loginDisplay = "none";
 
   loginData: Profile;
   signupData: Profile;
-
+*/
   constructor(private userManagerService: UserManagerService) { }
 
   ngOnInit(): void {
-    this.loginData = {
+    /*this.loginData = {
       username: "",
       password: ""
     }
@@ -26,9 +27,9 @@ export class HeaderComponent implements OnInit {
     this.signupData ={
       username: "",
       password: "",
-    }
+    }*/
   }
-
+/*
   onLoginClick(): void{
     this.loginDisplay = "block";
   }
@@ -36,7 +37,8 @@ export class HeaderComponent implements OnInit {
   onSignupClick(): void{
     this.signupDisplay = "block";
   }
-
+  */
+/*
   onLoginClose(){
     this.loginDisplay = "none";
     this.loginData = {
@@ -44,7 +46,7 @@ export class HeaderComponent implements OnInit {
       password: ""
     }
   }
-
+*//*
   onSignupClose(): void{
     this.signupDisplay = "none";
     this.signupData = {
@@ -52,7 +54,8 @@ export class HeaderComponent implements OnInit {
       password: ""  
     }
   }
-
+  */
+/*
   onLoginSubmit(){
     console.log("login-submit");
     // Hookup data to API for handling
@@ -62,7 +65,7 @@ export class HeaderComponent implements OnInit {
       console.log(err);
     });
   }
-
+*//*
   onSignupSubmit(){
     console.log("signup-submit");
     // Hookup data to API for handling
@@ -72,5 +75,5 @@ export class HeaderComponent implements OnInit {
       console.log(err);
     });
   }
-
+  */
 }
