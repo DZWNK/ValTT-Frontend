@@ -1,0 +1,62 @@
+.bracket {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+.round {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.match {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.line {
+    display: flex;
+    flex-direction: column;
+}
+
+.team {
+    border: 1px solid;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 80px;
+}
+
+.spacer {
+    display: flex;
+    flex-wrap: nowrap;
+    flex: 1;
+}
+
+.b::before {
+    content: "";
+    display: block;
+    width: 60%;
+    position: relative;
+    top: 10px;
+    right: 68%;
+    border-width: 2px;
+    border-top-style: solid;
+}
+
+.a::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 50%;
+    position: relative;
+    top: 24%;
+    border-width: 2px;
+    border-right-style: solid;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
