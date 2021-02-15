@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   loginData: Profile;
   signupData: Profile;
 */
-  constructor(private userManagerService: UserManagerService) { }
+  constructor(private _authService: UserManagerService) { }
 
   ngOnInit(): void {
     /*this.loginData = {

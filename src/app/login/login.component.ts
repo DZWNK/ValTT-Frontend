@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { loginProfile } from '../../models/loginProfile';
 import { UserManagerService } from '../user-manager.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -9,19 +10,17 @@ import { UserManagerService } from '../user-manager.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  //signupDisplay = "none";
   loginDisplay = "none";
-  
   loginData: loginProfile;
-  //signupData: Profile;
 
-  constructor(private userManagerService: UserManagerService) { }
+  constructor(private userManagerService: UserManagerService,
+    private _router: Router) { }
 
   ngOnInit(): void {
-
     this.onLoginClick();
+
     this.loginData = {
-      username: "",
+      login: "",
       password: "",
     }
   }
@@ -33,24 +32,25 @@ export class LoginComponent implements OnInit {
   onLoginClose(){
     this.loginDisplay = "none";
     this.loginData = {
-      username: "",
-      //email: "",
-      //birthdate: "",
+      login: "",
       password: "",
-     // confirmpassword: "",
     }
   }
-// is this suppose to be calling login with loginData? i changed it cause it was calling signup with signup data
-// as was the signup component...
+
   onLoginSubmit(){
     console.log("login-submit");
-    console.log(this.loginData);
     // Hookup data to API for handling
-    this.userManagerService.login(this.loginData).subscribe(msg => {
-      console.log(msg);
-    }, err => {
-      console.log(err);
-    });
+      this.userManagerService.login(this.loginData)
+        .subscribe(
+          /* once server responds with token it saves in local storage
+          this._router.navigate(['/event/:id']); // this is for jwt, once successful login happens it navigates
+          to a locked page which is only accessible to logged in users (route guarding)*/
+          res => {
+          console.log(res)
+          localStorage.setItem('token', res.token)
+          this._router.navigate(['/favourites'])
+        }, 
+      err => console.log(err)
+    )
   }
-
 }

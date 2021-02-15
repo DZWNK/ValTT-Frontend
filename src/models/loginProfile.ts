@@ -1,4 +1,5 @@
 export class loginProfile{
-    username: string;
+    login: string;
+    //username: string;
     password: string;
 }
