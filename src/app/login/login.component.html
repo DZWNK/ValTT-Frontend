@@ -6,7 +6,7 @@
      
             <div>
                 <label>Username: </label>
-                <input required minlength="4" maxlength="12" ngModel name="username" #userName="ngModel" type="text" id="username" [(ngModel)]="loginData.username">
+                <input required minlength="4" maxlength="12" ngModel name="username" #userName="ngModel" type="text" id="username" [(ngModel)]="loginData.login">
                 <div class="alert alert-danger" *ngIf="userName.touched && !userName.valid">A valid username is required.</div>
             </div>
 

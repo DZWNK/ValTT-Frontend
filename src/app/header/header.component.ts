@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Profile } from '../../models/Profile';
 import { UserManagerService } from '../user-manager.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,18 @@ export class HeaderComponent implements OnInit {
   loginData: Profile;
   signupData: Profile;
 */
-  constructor(private userManagerService: UserManagerService) { }
+  constructor(private _authService: UserManagerService,
+    private _router: Router) { }
+
+  logoutUser() {
+    localStorage.removeItem('token')
+    this._router.navigate(['/'])
+  }
+  
+  loggedIn() {
+    //we want a boolean value not the token itself so double negate
+    return !!localStorage.getItem('token')
+  }
 
   ngOnInit(): void {
     /*this.loginData = {
