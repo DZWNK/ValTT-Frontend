@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Profile } from '../models/Profile';
 import { loginProfile } from '../models/loginProfile';
+import { Router } from '@angular/router'
 
 //const API_URL = 'https://agile-stream-35042.herokuapp.com/';
 
@@ -47,5 +48,6 @@ export class UserManagerService {
   getToken() {
     return localStorage.getItem('token')
   }
+
 
 }
