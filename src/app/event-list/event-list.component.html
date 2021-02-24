@@ -1,3 +1,14 @@
 <div>
-    <app-event></app-event>
+    <h1>Verified Events</h1>
+    <div class="verified-container">
+        <div class="event" *ngFor="let event of events">
+            {{event.name}}
+        </div>
+    </div>
+    <h1>Unverified Events</h1>
+    <div class="unverified-container">
+        <div class="event">Event 2</div>
+    </div>
 </div>
+
+<app-event></app-event>
