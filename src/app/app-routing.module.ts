@@ -11,18 +11,19 @@ import { PlayerComponent } from './player/player.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { TeamComponent } from './team/team.component';
-import { LoginComponent } from './login/login.component'; // added this and signup routes\
+import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-
+  { path: 'favourites', component: FavouritesComponent, canActivate: [AuthGuard]},
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'profile/:id/favourites', component: FavouritesComponent },
   { path: 'player/:id', component: PlayerComponent },
   { path: 'team/:id', component: TeamComponent },
-  { path: 'event/:id', component: EventComponent },
+  { path: 'event/:id', component: EventComponent},
   { path: 'match/:id', component: MatchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },

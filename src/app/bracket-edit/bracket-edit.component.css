@@ -1,0 +1,66 @@
+.bracket {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid;
+    margin: 5px;
+    overflow: scroll;
+}
+
+.round {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.group {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    height: 100%;
+}
+
+.line {
+    display: flex;
+    flex-direction: column;
+}
+
+.match {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 6em;
+}
+
+.b::before {
+    content: "";
+    display: block;
+    width: 2.5em;
+    right: 2.5em;
+    position: relative;
+    top: 2.35em;
+    border-width: 2px;
+    border-top-style: solid;
+}
+
+.a::after {
+    content: "";
+    display: block;
+    width: 1.8em;
+    height: 50.5%;
+    position: relative;
+    top: 25%;
+    border-width: 2px;
+    border-right-style: solid;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+
+.team {
+    padding: 5px;
+    border: 1px solid;
+    width: 100%;
+}

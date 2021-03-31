@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Event } from '../../models/Event';
+import { EventPreview } from '../../models/EventPreview';
 import { EventManagerService } from '../event-manager.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-list',
@@ -10,19 +11,24 @@ import { Subscription } from 'rxjs';
 })
 export class EventListComponent implements OnInit {
 
-  events: Array<Event>;
+  verifiedEvents: Array<EventPreview>;
+  unverifiedEvents: Array<EventPreview>;
 
   private eventsSub: Subscription;
 
-  constructor(private eventManagerService: EventManagerService) { }
+  constructor(private eventManagerService: EventManagerService, private router: Router) { }
 
   ngOnInit(): void {
-    this.eventsSub = this.eventManagerService.getAllEvents(1, 10).subscribe(data =>{
-      this.events = data;
+    this.eventsSub = this.eventManagerService.getAllVerifiedEvents(1, 10).subscribe(data =>{
+      this.verifiedEvents = data;
     });
   }
 
   ngOnDestroy():void{
     this.eventsSub.unsubscribe();
+  }
+
+  loadEvent(id: string):void{
+    this.router.navigate(['/event', id]);
   }
 }

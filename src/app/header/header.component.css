@@ -4,7 +4,7 @@ ul {
 }
 
 li {
-    color:#ffffff;
+    color: #ffffff;
     text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 
@@ -30,13 +30,15 @@ h1 {
     color: white;
     text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
-.image{
-    width:auto;
-    background-image:url('../../assets/img/Picture2.png');
+
+.image {
+    width: auto;
+    background-image: url('../../assets/img/Picture2.png');
     background-repeat: no-repeat;
-    background-color:rgba(255, 255, 255, 0.13);
+    background-color: rgba(255, 255, 255, 0.13);
     background-position-x: -65px;
 }
+
 div.header {
     background-color: #777777;
 }

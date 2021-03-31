@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Profile } from '../../models/Profile';
 import { UserManagerService } from '../user-manager.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-signup',
@@ -13,10 +14,10 @@ export class SignupComponent implements OnInit {
   date = new Date();  
   maxDate = (new Date().getFullYear()).toString()+"-0"+(new Date().getMonth()+1).toString()+"-"+(new Date().getDate()).toString();
   signupDisplay = "none";
-  //loginData: Profile;
   signupData: Profile;
 
-  constructor(private userManagerService: UserManagerService) { 
+  constructor(private userManagerService: UserManagerService,
+    private _router: Router) { 
     console.log(this.maxDate)
   }
 
@@ -58,11 +59,13 @@ export class SignupComponent implements OnInit {
   onSignupSubmit(){
     console.log("signup-submit");
     // Hookup data to API for handling
-    console.log(this.signupData); // checking if we actually have the data after submitting
-    this.userManagerService.signup(this.signupData).subscribe(msg => {
-      console.log(msg);
-    }, err => {
-      console.log(err);
-    });
+    this.userManagerService.signup(this.signupData)
+    .subscribe(
+      res => {
+       console.log(res),
+       this._router.navigate(['/login'])
+      },
+      err => console.log(err)
+    )
   }
 }

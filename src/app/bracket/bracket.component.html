@@ -1,0 +1,32 @@
+<form class="bracket">
+    <ul class="round" *ngFor="let round of rounds; let i = index">
+        <ng-container *ngFor="let match of round; let ii = index">
+            <li class="group" *ngIf="ii%2 != 0" [ngClass]="{a: match != (matches.length-1)}">
+                <div class="line">
+                    <div class="match" (click)="loadMatch(match)" [ngClass]="{b: i != 0}">
+                        <div class="match-teams">
+                            <div class="team">{{matches[match].team[0].name}}</div>
+                            <div class="team">{{matches[match].team[1].name}}</div>
+                        </div>
+                    </div>
+                    <div class="match" (click)="loadMatch(match+1)" [ngClass]="{b: i != 0}">
+                        <div class="match-teams">
+                            <div class="team">{{matches[match+1].team[0].name}}</div>
+                            <div class="team">{{matches[match+1].team[1].name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="group" *ngIf="match==( matches.length-1)">
+                <div class="line">
+                    <div class="match" (click)="loadMatch(match)" [ngClass]="{b: i != 0}">
+                        <div class="match-teams">
+                            <div class="team">{{matches[match].team[0].name}}</div>
+                            <div class="team">{{matches[match].team[1].name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+</form>

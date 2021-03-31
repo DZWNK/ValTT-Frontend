@@ -1,0 +1,39 @@
+<form class="bracket">
+    <datalist id="teams">
+        <!-- Option for each Team (add search function) -->
+        <option>{{teams[0]}}</option>
+        <option>{{teams[1]}}</option>
+        <option>{{teams[2]}}</option>
+        <option>{{teams[3]}}</option>
+    </datalist>
+    <ul class="round" *ngFor="let round of rounds; let i = index">
+        <ng-container *ngFor="let match of round; let ii = index">
+            <li class="group" *ngIf="ii%2 != 0" [ngClass]="{a: match != (matches.length-1)}">
+                <div class="line">
+                    <div class="match" [ngClass]="{b: i != 0}">
+                        <div class="match-teams">
+                            <input class="team" list="teams" placeholder="Team" (change)="selectedTeam($event, match, 0)" [value]="tmp">
+                            <input class="team" list="teams" placeholder="Team" (change)="selectedTeam($event, match, 1)">
+                        </div>
+                    </div>
+                    <div class="match" [ngClass]=" {b: i !=0 } ">
+                        <div class="match-teams">
+                            <input class="team" list="teams" placeholder="Team" (change)="selectedTeam($event, match+1, 0)">
+                            <input class="team" list="teams" placeholder="Team" (change)="selectedTeam($event, match+1, 1)">
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="group" *ngIf="match==( matches.length-1)">
+                <div class="line">
+                    <div class="match" [ngClass]="{b: i !=0 } ">
+                        <div class="match-teams">
+                            <input class="team" list="teams" placeholder="Team" (change)="selectedTeam($event, match, 0)">
+                            <input class="team" list="teams" placeholder="Team" (change)="selectedTeam($event, match, 1)">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+</form>
