@@ -16,6 +16,8 @@ export class UserManagerService {
   private API_URL_SIGNUP = "http://localhost:5000/auth/signup"
   private API_URL_LOGIN = "http://localhost:5000/auth/login"
 
+  //  private API_URL_SIGNUP = "https://valtt.herokuapp.com/auth/signup"
+  //private API_URL_LOGIN = "https://valtt.herokuapp.com/auth/login"
   constructor(private http: HttpClient) { }
 
   // the signup user method accepts user object and returns the response 

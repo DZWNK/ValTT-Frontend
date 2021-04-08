@@ -1,16 +1,20 @@
 div.footer {
     background-color: #777777;
     padding: 8px;
+    position:relative;z-index:5;
+        outline: 1px solid black;
+        background-color: #6aa7b6dc;
+        animation-name: colorchange;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+    
 }
-li {
-    align-items: center;
-    color:#ffffff;
-    text-shadow: 2px 2px 5px rgb(0, 0, 0);
-}
+p {
+    font-family: 'Exo', sans-serif;
+    font-size: 33px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-weight:400;
 
-ul {
-        text-align: center;
-        color:#ffffff;
-        text-shadow: 2px 2px 5px rgb(0, 0, 0);
-  
 }

@@ -23,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserManagerService } from './user-manager.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
