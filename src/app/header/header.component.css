@@ -1,42 +1,85 @@
-ul {
-    list-style-type: none;
-    overflow: hidden;
+* { box-sizing:border-box }
+    
+h1 {
+    font-family: 'Exo', sans-serif;
+    font-size: 65px;
+    text-align: center;
+    color: rgb(0, 0, 0);
 }
 
-li {
-    color:#ffffff;
-    text-shadow: 2px 2px 5px rgb(0, 0, 0);
-}
+div.header {
+    margin: 0px;
+        border: 1px solid black;
+        background-color: #6aa7b6dc;  
+    }
 
-.nav-link {
-    float: left;
-    display: block;
-    padding: 14px 16px;
+    #navdiv {
+        float: left;
+        font-family: 'Exo', sans-serif;
+        border: 1px solid #121314;
+        border-top: 1px solid #2b2e30;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 0px;
+        overflow: hidden;
+        width:100%;
+        min-width: 650px;
+    }
+
+#navdiv ul {
+        margin:0;
+        padding:0;
+        list-style:none;
+    }
+
+    #navdiv ul li {
+        float:left;
+        padding: 16px 16px;
+        width: 14%;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        border-right: 1px solid rgba(0,0,0,0.2);   
+    }
+
+    #navdiv ul li a {
+        display: block;
+        color:#000000;
+        text-decoration:none;
+        text-align: center;
+    }
+
+a { 
+    color:#000000;
+    outline: 1px solid black;
+    padding: 2%;
+    font-weight: 600;
+    background-color: #6aa7b6dc;
 }
 
 .nav-link:hover {
-    background-color: #00aaaa;
-    border: 1px solid rgb(255, 255, 255);
+    background-color: #6aa7b6dc;
+    outline: 1px solid rgb(0, 0, 0);
 }
 
 .nav-link.active {
-    background-color: #00aaaa;
-    border: 1px solid rgb(255, 255, 255);
+    background-color: #6aa7b6dc;
 }
 
-h1 {
-    text-align: center;
-    padding-top: 22px;
-    color: white;
-    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+.pancontainer{
+    animation-name: panup;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+ }
+
+@keyframes colorchange {
+from{background-color:#6aa7b6}
+to {background-color: #6aa7b6dc}
 }
-.image{
-    width:auto;
-    background-image:url('../../assets/img/Picture2.png');
-    background-repeat: no-repeat;
-    background-color:rgba(255, 255, 255, 0.13);
-    background-position-x: -65px;
+
+@keyframes panup {
+    from {transform: translateY(100)}
+    to {transform: translateY(19)}
 }
-div.header {
-    background-color: #777777;
-}
+
+
+

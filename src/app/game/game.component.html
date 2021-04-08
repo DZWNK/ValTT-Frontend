@@ -2,23 +2,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap" rel="stylesheet">
 
-
 <ol class='topspace'>
-    <h1>{{tournamentname}}</h1>
-    <p class='one'>{{bracketname}}</p>
-  </ol>
-
-<ol>
-<h1>{{teamsplaying[0]}} {{teammatchscore[0]}} - {{teammatchscore[1]}} {{teamsplaying[1]}}</h1>
-<h3 class="nav-link" routerLink="/game/1" routerLinkActive="active">MAP 1: {{mapsinmatch[0]}}</h3>
-<h3 class="nav-link" routerLink="/game/2" routerLinkActive="active">MAP 2: {{mapsinmatch[1]}}</h3>
-<h3 class="nav-link" routerLink="/game/3" routerLinkActive="active">MAP 3: {{mapsinmatch[2]}}</h3>
-<h3 class="nav-link" routerLink="/game/4" routerLinkActive="active">MAP 4: {{mapsinmatch[3]}}</h3>
+  <h1>{{teamsplaying[0]}} {{teamgamescore[0]}} -  {{teamgamescore[0]}} {{teamsplaying[1]}}</h1>
+<p class='one'>{{mapname}}</p>
 </ol>
-
 <ol>
   <h1>{{teamsplaying[0]}}</h1>
-  <p class='one'>MATCH STATISTICS</p>
+  <p class='one'>MAP STATISTICS</p>
   <table>
       <tr>
         <th>Player</th>
@@ -39,7 +29,7 @@
     <table>
       <tr>
         <th> </th>
-        <th *ngFor="let stats of matchstats0, let i = index">{{stats}} </th>
+        <th *ngFor="let stats of gamestats0, let i = index">{{stats}} </th>
       </tr>
   </table>
   </li>
@@ -48,7 +38,7 @@
     <table>
       <tr>
         <th> </th>
-        <th *ngFor="let stats of matchstats1, let i = index">{{stats}} </th>
+        <th *ngFor="let stats of gamestats1, let i = index">{{stats}} </th>
       </tr>
   </table>
   </li>
@@ -57,7 +47,7 @@
     <table>
       <tr>
         <th> </th>
-        <th *ngFor="let stats of matchstats2, let i = index">{{stats}} </th>
+        <th *ngFor="let stats of gamestats2, let i = index">{{stats}} </th>
       </tr>
   </table>
   </li>
@@ -65,7 +55,7 @@
     <table>
       <tr>
         <th> </th>
-        <th *ngFor="let stats of matchstats3, let i = index">{{stats}} </th>
+        <th *ngFor="let stats of gamestats3, let i = index">{{stats}} </th>
       </tr>
   </table>
   </li>
@@ -73,7 +63,7 @@
     <table>
       <tr>
         <th> </th>
-        <th *ngFor="let stats of matchstats4, let i = index">{{stats}} </th>
+        <th *ngFor="let stats of gamestats4, let i = index">{{stats}} </th>
       </tr>
   </table>
   </li>
@@ -81,7 +71,7 @@
 
 <ol>
   <h1>{{teamsplaying[1]}}</h1>
-  <p class='one'>MATCH STATISTICS</p>
+  <p class='one'>MAP STATISTICS</p>
   <table>
       <tr>
         <th>Player</th>
@@ -100,7 +90,7 @@
     <table>
       <tr>
         <th> </th>
-        <th *ngFor="let stats of matchstats5, let i = index">{{stats}} </th>
+        <th *ngFor="let stats of gamestats5, let i = index">{{stats}} </th>
       </tr>
   </table>
   </li>
@@ -109,7 +99,7 @@
     <table>
       <tr>
         <th> </th>
-        <th *ngFor="let stats of matchstats6, let i = index">{{stats}} </th>
+        <th *ngFor="let stats of gamestats6, let i = index">{{stats}} </th>
       </tr>
   </table>
   </li>
@@ -118,7 +108,7 @@
     <table>
       <tr>
         <th> </th>
-        <th *ngFor="let stats of matchstats7, let i = index">{{stats}} </th>
+        <th *ngFor="let stats of gamestats7, let i = index">{{stats}} </th>
       </tr>
   </table>
   </li>
@@ -126,7 +116,7 @@
     <table>
       <tr>
         <th> </th>
-        <th *ngFor="let stats of matchstats8, let i = index">{{stats}} </th>
+        <th *ngFor="let stats of gamestats8, let i = index">{{stats}} </th>
       </tr>
   </table>
   </li>
@@ -134,7 +124,7 @@
     <table>
       <tr>
         <th> </th>
-        <th *ngFor="let stats of matchstats9, let i = index">{{stats}} </th>
+        <th *ngFor="let stats of gamestats9, let i = index">{{stats}} </th>
       </tr>
   </table>
   </li>

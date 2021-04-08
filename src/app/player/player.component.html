@@ -1,1 +1,45 @@
-<p>player works!</p>
+<ol class='topspace'>
+    <h1>{{playername}}</h1>
+  </ol>
+
+<ol>
+    <p class='one'>OVERALL STATISTICS</p>
+    <table>
+        <tr>
+          <th>Player</th>
+          <th>ACS</th>
+          <th>K</th>
+          <th>D</th>
+          <th>A</th>
+          <th>+/-</th>
+          <th>ADR</th>
+          <th>HS%</th>
+          <th>FK</th>
+          <th>FD</th>
+        </tr>
+    </table>
+
+    <li class="nav-link" routerLink="/player/1" routerLinkActive="active">{{playername}}</li>
+    <table>
+      <tr>
+        <th> </th>
+        <th *ngFor="let stats of overallstats, let i = index">{{stats}} </th>
+      </tr>
+  </table>
+ </ol>
+
+ 
+ <ul>
+ <h1>PREVIOUS TEAMS:</h1>
+ <table>
+
+    <tr>
+        <th>11/22/20 - 02/20/21</th>
+      <li routerLink="/teams/2" routerLinkActive="active">MIBR</li>
+    </tr>
+    <tr>
+        <th>11/21/19 - 11/22/20</th>
+      <li routerLink="/teams/3" routerLinkActive="active">FURIA</li>
+    </tr>
+</table>
+</ul>

@@ -1,5 +1,26 @@
-.image{
-    height:40em; background-size:contain; width:auto;
-    background-image:url('../../assets/img/OMEN.png');
-    background-position:50% 10%;
+h1 {
+    text-align: center;
 }
+p{
+    padding: 9px;
+    margin: 10px;
+    text-shadow: 3px 3px 3px rgb(255, 255, 255);
+}
+.image{
+    height:44em; background-size:100%; width:auto;
+    background-image:url('../../assets/img/OMEN.png');
+    background-repeat: no-repeat;
+    background-position:33%;
+    animation-name: panup;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
+}
+
+
+@keyframes panup {
+    from {background-position:33%}
+    to {background-position:10%}
+}
+
+

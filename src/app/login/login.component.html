@@ -1,23 +1,26 @@
-<p>Enter your login details</p>
+
 <div class="dialog-box" [style.display]="loginDisplay">
     <div class="dialog">
         <form (ngSubmit)="onLoginSubmit()">
             <h2>LOGIN:</h2>
      
             <div>
-                <label>Username: </label>
+                <label>USERNAME: </label>
                 <input required minlength="4" maxlength="12" ngModel name="username" #userName="ngModel" type="text" id="username" [(ngModel)]="loginData.login">
                 <div class="alert alert-danger" *ngIf="userName.touched && !userName.valid">A valid username is required.</div>
             </div>
 
             <div>
-                <label>Password: </label>
+                <label>PASSWORD: </label>
                 <input required minlength="4" maxlength="20" ngModel name="password" #password="ngModel" type="password" id="password" [(ngModel)]="loginData.password">
                 <div class="alert alert-danger" *ngIf="password.touched && !password.valid"> A valid password is required.</div>
             </div>
-
-            <button>Submit</button>
+            
+                <button>SUBMIT</button>
         </form>
-        <button (click)="onLoginClose()">Close</button>
+        
+        <div class="buttonHolder2">
+        <button (click)="onLoginClose()">CLOSE</button>
+ </div>
     </div>
 </div>
