@@ -1,6 +1,10 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Event } from '../../models/Event';
-import { MatchPreview } from 'src/models/MatchPreview';
+import { MatchPreview } from '../../models/MatchPreview';
+import { Team } from 'src/models/Team';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { EventManagerService } from '../event-manager.service';
 
 @Component({
   selector: 'app-event-creation',
@@ -9,38 +13,17 @@ import { MatchPreview } from 'src/models/MatchPreview';
 })
 export class EventCreationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eventManagerService: EventManagerService, private router: Router, private route: ActivatedRoute) { }
 
   event: Event;
 
+  private eventSub: Subscription;
+
   ngOnInit(): void {
-    console.log("Init");
-    this.event = new Event;
-    this.event.id = "123abc";
-    this.event.name = "E1 ValTT";
-    this.event.runningStatus = true;
-    this.event.dateCreated = new Date();
-    this.event.startDate = new Date();
-    this.event.endDate = new Date();
-    this.event.watchLink = "https://google.ca";
-    this.event.verified = false;
-    this.event.featured = false;
-    this.event.winner = 0;
-    this.event.brackets = [{
-      name: "B1",
-      pushPerMatch: false,
-      pushWinner: 0,
-      pushLoser: 0,
-      matchesPlayed: 0,
-      matches: {
-        match: [
-          new MatchPreview("Cloud 9", "NRG"),
-          new MatchPreview("Luminosity", "100 Thieves"),
-          new MatchPreview("Cloud 9", "Luminosity")
-        ],
-        prize: "none"
-      }
-    }];
+    this.eventSub = this.eventManagerService.getEventById(this.route.snapshot.params['id']).subscribe(data=>{
+      this.event = data[0];
+      console.log(this.event);
+    });
   }
 
   addBracket() {
@@ -50,14 +33,11 @@ export class EventCreationComponent implements OnInit {
       pushWinner: 0,
       pushLoser: 0,
       matchesPlayed: 0,
-      matches: {
-        match: [
+      matches: [
           new MatchPreview("T1", "T2"),
           new MatchPreview("T3", "T4"),
           new MatchPreview("T5", "T6")
-        ],
-        prize: "none"
-      }
+      ]
     });
   }
 
@@ -75,9 +55,12 @@ export class EventCreationComponent implements OnInit {
       console.log(`Round: ${i+1} roundMatches: ${roundMatches}`);
     }
     for(let i=0;i<roundMatches;i++){
-      this.event.brackets[match].matches.match.unshift(new MatchPreview(`TMP ${i}`, `TMP ${i}`));
+      console.log(this.event.brackets[match].matches[0]);
+      this.event.brackets[match].matches.unshift(new MatchPreview('a', 'b'));
+      console.log("End")
     }
-    console.log(this.event.brackets[match].matches.match);
+    console.log("e2")
+    console.log(this.event.brackets[match].matches);
     console.log('----- Increment End -----');
   }
 
@@ -91,16 +74,16 @@ export class EventCreationComponent implements OnInit {
       console.log(`Round: ${i} roundMatches: ${roundMatches}`);
     }
     for(let i=0; i<roundMatches; i++){
-      this.event.brackets[match].matches.match.shift();
+      this.event.brackets[match].matches.shift();
     }
-    console.log(this.event.brackets[match].matches.match);
+    console.log(this.event.brackets[match].matches);
     console.log('----- Decrement End -----');
   }
 
   // Calculate number of rounds
    numRounds(match: number): number {
     let roundTotal = 0;
-    let length = this.event.brackets[match].matches.match.length;
+    let length = this.event.brackets[match].matches.length;
     let i = 1;
     if (length > 0) {
       length -= i;
@@ -111,5 +94,24 @@ export class EventCreationComponent implements OnInit {
       }
     }
     return roundTotal;
+  }
+
+  selectedTeam(event: any, index: number){
+    this.event.teams[index].name = event.target.value;
+  }
+
+  view(id: string){
+    this.router.navigate(['event/', id]);
+  }
+
+  addTeam(){
+    console.log("Push");
+    console.log(this.event.teams);
+    this.event.teams.push(new Team(''));
+    console.log(this.event.teams);
+  }
+
+  removeTeam(index: number){
+    this.event.teams.splice(index, 1);
   }
 }

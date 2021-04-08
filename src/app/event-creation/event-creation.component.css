@@ -23,3 +23,10 @@
 .a {
     border: 3px dashed red;
 }
+
+.team-selection {
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 30%;
+}

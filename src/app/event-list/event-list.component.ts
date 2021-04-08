@@ -14,18 +14,23 @@ export class EventListComponent implements OnInit {
   verifiedEvents: Array<EventPreview>;
   unverifiedEvents: Array<EventPreview>;
 
-  private eventsSub: Subscription;
+  private verifiedEventsSub: Subscription;
+  private unverifiedEventsSub: Subscription;
 
   constructor(private eventManagerService: EventManagerService, private router: Router) { }
 
   ngOnInit(): void {
-    this.eventsSub = this.eventManagerService.getAllVerifiedEvents(1, 10).subscribe(data =>{
+    this.verifiedEventsSub = this.eventManagerService.getAllVerifiedEvents(1, 10).subscribe(data =>{
       this.verifiedEvents = data;
     });
+    // this.unverifiedEventsSub = this.eventManagerService.getAllUnverifiedEvents(1, 10).subscribe(data=>{
+    //   this.unverifiedEvents = data;
+    // });
   }
 
   ngOnDestroy():void{
-    this.eventsSub.unsubscribe();
+    this.verifiedEventsSub.unsubscribe();
+    // this.unverifiedEventsSub.unsubscribe();
   }
 
   loadEvent(id: string):void{

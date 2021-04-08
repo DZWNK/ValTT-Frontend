@@ -16,24 +16,21 @@ export class BracketComponent implements OnInit{
 
   roundTotal: number;
   rounds: Array<Array<number>>;
-  _diff: IterableDiffer<MatchPreview>;
 
-  constructor(private router: Router, private _itterableDiffers: IterableDiffers) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.matches = [new MatchPreview("Cloud 9", "NRG"), new MatchPreview("Luminosity", "Gen G"), new MatchPreview("Gen G", "Cloud 9")];
-    console.log(this.matches[0].winner);
-    this._diff = this._itterableDiffers.find(this.matches).create();
+    //this.matches = [new MatchPreview("Cloud 9", "NRG"), new MatchPreview("Luminosity", "Gen G"), new MatchPreview("Gen G", "Cloud 9")];
     this.populateBracket();
   }
 
   loadMatch(index: number): void {
-    this.router.navigate(['match', this.matches[index].id]);
+    this.router.navigate(['match', this.matches[index].match.id]);
   }
 
   loadNextMatch(index: number): void{
     console.log(index);
-    this.router.navigate(['match', this.matches[index+1].id]);
+    this.router.navigate(['match', this.matches[index+1].match.id]);
   }
 
   populateBracket() {

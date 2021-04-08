@@ -5,14 +5,14 @@
                 <div class="line">
                     <div class="match" (click)="loadMatch(match)" [ngClass]="{b: i != 0}">
                         <div class="match-teams">
-                            <div class="team">{{matches[match].team[0].name}}</div>
-                            <div class="team">{{matches[match].team[1].name}}</div>
+                            <div class="team">{{matches[match].match.teams[0].name}}</div>
+                            <div class="team">{{matches[match].match.teams[1].name}}</div>
                         </div>
                     </div>
                     <div class="match" (click)="loadMatch(match+1)" [ngClass]="{b: i != 0}">
                         <div class="match-teams">
-                            <div class="team">{{matches[match+1].team[0].name}}</div>
-                            <div class="team">{{matches[match+1].team[1].name}}</div>
+                            <div class="team">{{matches[match+1].match.teams[0].name}}</div>
+                            <div class="team">{{matches[match+1].match.teams[1].name}}</div>
                         </div>
                     </div>
                 </div>
@@ -21,8 +21,8 @@
                 <div class="line">
                     <div class="match" (click)="loadMatch(match)" [ngClass]="{b: i != 0}">
                         <div class="match-teams">
-                            <div class="team">{{matches[match].team[0].name}}</div>
-                            <div class="team">{{matches[match].team[1].name}}</div>
+                            <div class="team">{{matches[match].match.teams[0].name}}</div>
+                            <div class="team">{{matches[match].match.teams[1].name}}</div>
                         </div>
                     </div>
                 </div>

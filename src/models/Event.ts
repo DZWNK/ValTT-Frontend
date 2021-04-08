@@ -1,10 +1,8 @@
-import { ObjectUnsubscribedError } from "rxjs";
-import { EventPreview } from "./EventPreview";
 import { Team } from "./Team";
 import { Bracket } from "./Bracket";
 
 export class Event{
-    id: string;
+    _id: string;
     name: string;
     runningStatus: boolean;
     dateCreated: Date;

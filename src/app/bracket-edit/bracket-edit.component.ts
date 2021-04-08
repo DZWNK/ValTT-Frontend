@@ -1,6 +1,7 @@
 import { Component, Input, IterableDiffer, IterableDiffers, IterableChanges, OnInit, DoCheck} from '@angular/core';
 import { Router } from '@angular/router';
-import { MatchPreview } from 'src/models/MatchPreview';
+import { MatchPreview } from '../../models/MatchPreview';
+import { Team } from '../../models/Team';
 
 @Component({
   selector: 'app-bracket-edit',
@@ -12,9 +13,8 @@ export class BracketEditComponent implements OnInit {
   @Input('matches')
   matches: Array<MatchPreview>;
 
-  teams: Array<string>;
-
-  tmp: string = "";
+  @Input('teams')
+  teams: Array<Team>;
 
   roundTotal: number;
   rounds: Array<Array<number>>;
@@ -23,14 +23,21 @@ export class BracketEditComponent implements OnInit {
   constructor(private router: Router, private _itterableDiffers: IterableDiffers) { }
 
   ngOnInit(): void {
-    this.teams = ["Cloud 9", "NRG", "Luminosity", "Gen G"];
-    console.log(this.matches[0].winner);
+    console.log("INITIALIZATION")
+    console.log("teams:")
+    console.log(this.teams)
+    console.log("matches:")
+    console.log(this.matches)
+    console.log(this.matches[0].match.teams[0].name)
+    //this.teams = ["Cloud 9", "NRG", "Luminosity", "Gen G"];
+    //console.log(this.matches[0].winner);
     this._diff = this._itterableDiffers.find(this.matches).create();
     this.populateBracket();
   }
   
   ngDoCheck(): void{
     console.log("Do Check");
+    console.log(this.teams)
     const changes: IterableChanges<MatchPreview> = this._diff.diff(this.matches);
     if(changes){
       this.populateBracket();
@@ -38,11 +45,11 @@ export class BracketEditComponent implements OnInit {
   }
 
   loadMatch(index: number): void {
-    this.router.navigate(['match', this.matches[index].id]);
+    this.router.navigate(['match', this.matches[index].match.id]);
   }
 
   loadNextMatch(index: number): void{
-    this.router.navigate(['match', this.matches[index+1].id]);
+    this.router.navigate(['match', this.matches[index+1].match.id]);
   }
 
   populateBracket() {
@@ -91,9 +98,9 @@ export class BracketEditComponent implements OnInit {
   selectedTeam(event: any, match: any, team: number){
     console.log(`Match: ${match} \t Team: ${team}`);
     console.log(`target value: ${event.target.value}`);
-    console.log(`old value: ${this.matches[match].team[team].name}`);
-    this.matches[match].team[team].name = event.target.value;
-    console.log(`new value: ${this.matches[match].team[team].name}`);
+    console.log(`old value: ${this.matches[match].match.teams[team].name}`);
+    this.matches[match].match.teams[team].name = event.target.value;
+    console.log(`new value: ${this.matches[match].match.teams[team].name}`);
   }
 
 }

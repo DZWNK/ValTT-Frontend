@@ -6,8 +6,5 @@ export class Bracket{
     pushWinner: number;
     pushLoser: number;
     matchesPlayed: number;
-    matches: {
-        match: Array<MatchPreview>,
-        prize: string;
-    };
+    matches: Array<MatchPreview>;
 }

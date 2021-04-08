@@ -1,17 +1,42 @@
-<form class="container">
-    <h1>Name: {{event.name}}</h1>
-    <h2>ID: {{event.id}}</h2>
-    <div style="width: 100%;" *ngFor="let bracket of event.brackets; let i=index">
-        <div class="row">
-            <input type="text" name="name{{i}}" [(ngModel)]="bracket.name">
-            <button (click)="removeBracket(i)">-</button>
+<ng-container *ngIf="event">
+    <button (click)="view(event._id)">View</button>
+    <form class="container">
+        <div class="row" style="width: 100%; position: relative; height: 20em;">
+            <datalist id="teams">
+            <!-- Option for each Team (add search function) -->
+            <option>Cloud 9</option>
+            <option>Luminosity</option>
+            <option>NRG</option>
+            <option>Gen G</option>
+        </datalist>
+            <div class="team-selection" style="border: 3px dashed blueviolet; width: 25%;">
+                <div *ngFor="let team of event.teams; let i = index">
+                    <input type="text" placeholder="New Team" list="teams" (change)="selectedTeam($event, i)" value="{{team.name}}" style="width: 80%;">
+                    <button (click)="removeTeam(i)" style="width: 2em; height: 2em">-</button>
+                </div>
+                <button (click)="addTeam()">Add Team</button>
+            </div>
+            <div style="border: 3px dashed red; width: 50%">
+                <h1>Name: {{event.name}}</h1>
+                <h2>ID: {{event._id}}</h2>
+            </div>
         </div>
-        <div class="row" style="padding-bottom: 0px">
-            <button (click)="decrement(i)">-</button>
-            <div class="centre">{{bracket.matches.match.length}} Matches</div>
-            <button (click)="increment(i)">+</button>
+        <div style="width: 100%;" *ngFor="let bracket of event.brackets; let i=index">
+            <div class="row">
+                <input type="text" name="name{{i}}" [(ngModel)]="bracket.name">
+                <button (click)="removeBracket(i) ">-</button>
+            </div>
+            <div class="row" style="padding-bottom: 0px ">
+                <button (click)="decrement(i) ">-</button>
+                <div class="centre ">{{bracket.matches.length}} Matches</div>
+                <button (click)="increment(i) ">+</button>
+            </div>
+            {{event.brackets[0].matches[0].match.teams[0].name}}
+            <app-bracket-edit [matches]=bracket.matches [teams]=event.teams></app-bracket-edit>
         </div>
-        <app-bracket-edit [matches]=bracket.matches.match></app-bracket-edit>
-    </div>
-    <button (click)="addBracket()">Add Bracket</button>
-</form>
+        <button (click)="addBracket() ">Add Bracket</button>
+    </form>
+</ng-container>
+<ng-container *ngIf="!event">
+    <h1>Loading...</h1>
+</ng-container>

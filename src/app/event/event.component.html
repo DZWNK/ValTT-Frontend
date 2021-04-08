@@ -1,6 +1,8 @@
-<h1>{{id}}</h1>
-<hr>
-<h1>Event Name</h1>
-<h1>Bracket</h1>
-<h2>Teams</h2>
-<app-event-creation></app-event-creation>
+<ng-container *ngIf="event">
+    <button (click)="edit(event._id)">Edit</button>
+    <h1>ID: {{event._id}}</h1>
+    <hr>
+    <h1>Event Name: {{event.name}}</h1>
+    brackets: {{event.brackets.length}}
+    <app-bracket *ngFor="let bracket of event.brackets" [matches]="bracket.matches"></app-bracket>
+</ng-container>

@@ -14,6 +14,7 @@ import { TeamComponent } from './team/team.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './auth.guard';
+import { EventCreationComponent } from './event-creation/event-creation.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -24,12 +25,12 @@ const routes: Routes = [
   { path: 'player/:id', component: PlayerComponent },
   { path: 'team/:id', component: TeamComponent },
   { path: 'event/:id', component: EventComponent},
+  { path: 'event/edit/:id', component: EventCreationComponent },
   { path: 'match/:id', component: MatchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'team_list', component: TeamListComponent },
   { path: 'event_list', component: EventListComponent },
-
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

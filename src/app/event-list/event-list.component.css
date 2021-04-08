@@ -17,3 +17,8 @@
 .notRunning {
     border: 5px red solid;
 }
+
+.verified-events {
+    display: flex;
+    flex-direction: row;
+}
