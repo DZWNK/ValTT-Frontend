@@ -103,4 +103,8 @@ export class BracketEditComponent implements OnInit {
     console.log(`new value: ${this.matches[match].match.teams[team].name}`);
   }
 
+  win(match: number, team: number){
+    console.log(`Match: ${match} | Team: ${team}`);
+  }
+
 }

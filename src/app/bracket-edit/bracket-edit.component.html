@@ -6,15 +6,20 @@
                     <div class="match" [ngClass]="{b: i != 0}">
                         <div class="match-teams">
                             <div *ngIf="i == 0">
-                                <select class="team" (change)="selectedTeam($event, match, 0)" [value]="matches[0].match.teams[0].name">
-                                    <option *ngFor="let team of teams">{{team.name}}</option>
-                                </select>
-                                <select class="team" (change)="selectedTeam($event, match, 1)" [value]="matches[0].match.teams[1].name">
-                                    <option *ngFor="let team of teams">{{team.name}}</option>
-                                </select>
+                                <div>
+                                    <select class="team" (change)="selectedTeam($event, match, 0)" [value]="matches[0].match.teams[0].name">
+                                        <option *ngFor="let team of teams">{{team.name}}</option>
+                                    </select>
+                                    <button (click)="win(match, 0)" style="width:2em; background-color:green">+</button>
+                                </div>
+                                <div>
+                                    <select class="team" (change)="selectedTeam($event, match, 1)" [value]="matches[0].match.teams[1].name">
+                                        <option *ngFor="let team of teams">{{team.name}}</option>
+                                    </select>
+                                    <button (click)="win(match, 1)" style="width:2em; background-color:green">+</button>
+                                </div>
                             </div>
                             <div *ngIf="i != 0">
-                                aaa
                                 <select class="team" (change)="selectedTeam($event, match, 0)" [value]="matches[0].match.teams[0].name">
                                     <option *ngFor="let team of teams">{{team.name}}</option>
                                 </select>

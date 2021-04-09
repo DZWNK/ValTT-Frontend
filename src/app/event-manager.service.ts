@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { EventPreview } from '../models/EventPreview';
 import { Event } from '../models/Event';
 
-const API_URL = 'https://hidden-taiga-46287.herokuapp.com';
+const API_URL = 'https://hidden-garden-36045.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'
