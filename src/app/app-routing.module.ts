@@ -28,18 +28,13 @@ const routes: Routes = [
   { path: 'profile/:id/favourites', component: FavouritesComponent },
   { path: 'player/:id', component: PlayerComponent },
   { path: 'team/:id', component: TeamComponent },
-  { 
-    path: 'event/:id', component: EventComponent
-   },
-   { 
-    path: 'game/:id', component: GameComponent
-   },
+  { path: 'event/:id', component: EventComponent },
+  { path: 'game/:id', component: GameComponent },
   { path: 'match/:id', component: MatchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'team_list', component: TeamListComponent },
   { path: 'event_list', component: EventListComponent },
-
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
