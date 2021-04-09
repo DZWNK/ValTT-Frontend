@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Match } from "../../models/Match";
 @Component({
   selector: 'app-match',
   templateUrl: './match.component.html',
   styleUrls: ['./match.component.css']
 })
 export class MatchComponent implements OnInit {
+match: Match;
+
   team1: Array<string>
   team2: Array<string>
   mapsplayed;
@@ -24,6 +26,7 @@ export class MatchComponent implements OnInit {
   matchstats8: Array<string>
   matchstats9: Array<string>
   teamsplaying: Array<string>
+
   constructor() { }
 
   ngOnInit(): void {
