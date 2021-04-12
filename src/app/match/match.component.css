@@ -50,6 +50,7 @@ text-align: center;
 }
   .container {
     text-align: center;
+    width: 50em;
   }
 
   .image{

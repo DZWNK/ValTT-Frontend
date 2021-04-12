@@ -1,5 +1,7 @@
 import { trimTrailingNulls } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
+import { Stats } from "../../models/Stats";
+import { Game } from "../../models/Game";
 
 @Component({
   selector: 'app-game',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game.component.css']
 })
 
-
-
 export class GameComponent implements OnInit {
+
+  constructor() { }
+
+  stats: Stats;
+  game: Game;
+
   team1: Array<string>
   team2: Array<string>
   bracketname: string;
@@ -26,14 +32,18 @@ export class GameComponent implements OnInit {
   gamestats8: Array<string>
   gamestats9: Array<string>
   teamsplaying: Array<string>
-  constructor() { }
+
 
   ngOnInit(): void {
+
+
+    this.stats = new Stats("265");
+
     this.mapname = "BIND";
-    this.teamgamescore = ["15", "13"];
+    this.teamgamescore = ["8", "13"];
     this.teamsplaying = ["MIBR", "CLOUD9"];
     this.team1 = ["xand", "Quick", "Nozwerr", "Khalil", "txddy"];
-    this.team2 = ["deNaro", "gaabxx", "prozin", "fra", "light"];
+    this.team2 = ["deNaro", "gaabxx", "prozin", "fra", "light"]; // needs to be an array of arrays
     this.gamestats0 = ["265", "27", "19", "3", "+8", "186", "22%", "1", "3"];
     this.gamestats1 = ["193", "20", "15", "2", "+5", "126", "25%", "0", "2"];
     this.gamestats2 = ["177", "18", "12", "7", "+6", "156", "60%", "3", "1"];
@@ -45,6 +55,4 @@ export class GameComponent implements OnInit {
     this.gamestats8 = ["123", "24", "13", "2", "+11", "122", "15%", "1", "1"];
     this.gamestats9 = ["256", "9", "20", "1", "-11", "100", "21%", "3", "0"];
   }
-
-
 }

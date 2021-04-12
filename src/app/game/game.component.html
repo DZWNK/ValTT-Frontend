@@ -3,9 +3,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap" rel="stylesheet">
 
 <ol class='topspace'>
-  <h1>{{teamsplaying[0]}} {{teamgamescore[0]}} -  {{teamgamescore[0]}} {{teamsplaying[1]}}</h1>
-<p class='one'>{{mapname}}</p>
+  <h1>{{teamsplaying[0]}} {{teamgamescore[0]}} -  {{teamgamescore[1]}} {{teamsplaying[1]}}</h1>
+<h2 class='one'>{{mapname}}</h2>
 </ol>
+
+<ol>
+  <h1>ROUND OVERVIEW</h1>
+
+<div class="grid-container">
+  <div>1<p class="image"></p><p class="roundText">DEFUSE</p></div>
+  <div>2<p class="image2"></p><p class="roundText">DETONATION</p></div>
+  <div>3<p class="image"></p><p class="roundText">DETONATION</p></div>  
+  <div>4<p class="image2"></p><p class="roundText">ELIMINATION</p></div>
+  <div>5<p class="image"></p><p class="roundText">DETONATION</p></div>
+  <div>6<p class="image2"></p><p class="roundText">ELIMINATION</p></div>  
+  <div>7<p class="image2"></p><p class="roundText">ELIMINATION</p></div>
+  <div>8<p class="image"></p><p class="roundText">DEFUSE</p></div>
+  <div>9<p class="image2"></p><p class="roundText">DETONATION</p></div>
+  <div>10<p class="image2"></p><p class="roundText">ELIMINATION</p></div>
+  <div>11<p class="image"></p><p class="roundText">ELIMINATION</p></div>
+  <div>12<p class="image"></p><p class="roundText">DEFUSE</p></div>
+  <div>13<p class="image"></p><p class="roundText">DETONATION</p></div>
+  <div>14<p class="image2"></p><p class="roundText">DETONATION</p></div>
+  <div>15<p class="image2"></p><p class="roundText">ELIMINATION</p></div>
+  <div>16<p class="image"></p><p class="roundText">DETONATION</p></div>
+  <div>17<p class="image"></p><p class="roundText">ELIMINATION</p></div>
+  <div>18<p class="image"></p><p class="roundText">ELIMINATION</p></div>
+  <div>19<p class="image"></p><p class="roundText">ELIMINATION</p></div>
+  <div>20<p class="image"></p><p class="roundText">DEFUSE</p></div>
+  <div>21<p class="image"></p><p class="roundText">DETONATION</p></div>
+
+</div>
+</ol>
+
 <ol>
   <h1>{{teamsplaying[0]}}</h1>
   <p class='one'>MAP STATISTICS</p>
@@ -23,7 +53,6 @@
         <th>FD</th>
       </tr>
   </table>
-
 
   <li class="nav-link" routerLink="/player/{{team1[0]}}" routerLinkActive="active">{{team1[0]}}
     <table>

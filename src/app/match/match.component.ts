@@ -1,52 +1,60 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Match } from "../../models/Match";
+import { Game } from "../../models/Game";
+import { MatchManagerService } from '../match-manager.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-match',
   templateUrl: './match.component.html',
   styleUrls: ['./match.component.css']
 })
 export class MatchComponent implements OnInit {
-match: Match;
+  
+  constructor(private matchManagerService: MatchManagerService, private router: Router, private route: ActivatedRoute) { }
 
-  team1: Array<string>
-  team2: Array<string>
-  mapsplayed;
-  mapsinmatch: Array<string>
-  bracketname: string;
-  tournamentname: string;
-  teammatchscore: Array<string>
-  matchstats0: Array<string>
-  matchstats1: Array<string>
-  matchstats2: Array<string>
-  matchstats3: Array<string>
-  matchstats4: Array<string>
-  matchstats5: Array<string>
-  matchstats6: Array<string>
-  matchstats7: Array<string>
-  matchstats8: Array<string>
-  matchstats9: Array<string>
-  teamsplaying: Array<string>
+  match: Match;
+  game1: Game;
+  game2: Game;
+  game3: Game;
+  game4: Game;
+  private matchSub: Subscription;
 
-  constructor() { }
 
+ activeStatusString1: string;
+ activeStatusString2: string;
+ activeStatusString3: string;
+ activeStatusString4: string;
   ngOnInit(): void {
-    this.mapsplayed = 4;
-    this.mapsinmatch = ["BIND", "HAVEN", "SPLIT", "ICEBOX"]
-    this.tournamentname = "SUPER TOURNEY";
-    this.bracketname = "SEMI FINAL";
-    this.teammatchscore = ["1", "3"];
-    this.teamsplaying = ["MIBR", "CLOUD9"];
-    this.team1 = ["xand", "Quick", "Nozwerr", "Khalil", "txddy"];
-    this.team2 = ["deNaro", "gaabxx", "prozin", "fra", "light"];
-    this.matchstats0 = ["265", "27", "19", "3", "+8", "186", "22%", "1", "3"];
-    this.matchstats1 = ["193", "20", "15", "2", "+5", "126", "25%", "0", "2"];
-    this.matchstats2 = ["177", "18", "12", "7", "+6", "156", "60%", "3", "1"];
-    this.matchstats3 = ["244", "12", "11", "1", "+1", "93", "21%", "4", "0"];
-    this.matchstats4 = ["266", "6", "9", "0", "-3", "80", "11%", "4", "0"];
-    this.matchstats5 = ["222", "11", "11", "2", "0", "33", "23%", "5", "2"];
-    this.matchstats6 = ["133", "17", "7", "5", "+10", "112", "77%", "2", "4"];
-    this.matchstats7 = ["111", "19", "12", "9", "+7", "71", "12%", "1", "7"];
-    this.matchstats8 = ["123", "24", "13", "2", "+11", "122", "15%", "1", "1"];
-    this.matchstats9 = ["256", "9", "20", "1", "-11", "100", "21%", "3", "0"];
+
+    this.matchSub = this.matchManagerService.getMatchById(this.route.snapshot.params['id']).subscribe(data=>{
+      this.match = data[0];
+      console.log(this.match);
+    });
+    this.match = new Match("123");
+ 
+
+
+    this.activeStatusString1 = this.activeStatusBoolConvert(this.match.activeGameStatus[0]);
+    this.activeStatusString2 = this.activeStatusBoolConvert(this.match.activeGameStatus[1]);
+    this.activeStatusString3 = this.activeStatusBoolConvert(this.match.activeGameStatus[2]);
+    this.activeStatusString4 = this.activeStatusBoolConvert(this.match.activeGameStatus[3]);
+
+  }
+
+  activeStatusBoolConvert(i: boolean) {
+    console.log(i);
+  let status;
+  if(i = true){
+    status = "ONGOING ";
+    return status;
+  } else {
+    status = "FINISHED ";
+    return status;
+  }};
+
+  ngOnDestroy(){
+  this.matchSub.unsubscribe();
   }
 }

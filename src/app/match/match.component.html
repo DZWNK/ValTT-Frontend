@@ -2,13 +2,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap" rel="stylesheet">
 
-
-
-
   <ol>
     <div class='topspace'>
-      <h1>{{tournamentname}}</h1>
-      <p class='one'>{{bracketname}}</p>
+      <h1>{{match.event}}</h1>
   </div>
 <div class="container">
   <div class="block">
@@ -16,141 +12,16 @@
      <a href="https://gg.bet/en">
     <div class="image"></div>
   </a>
-  <p class="betp">{{teamsplaying[0]}} vs {{teamsplaying[1]}}</p>
+  <p class="betp">{{match.teams[0]}} vs {{match.teams[1]}}</p>
   <p class="betp">2.43 to 5</p>
   </div>
 </div>
 </ol>
 
-
 <ol>
-<h1>{{teamsplaying[0]}} {{teammatchscore[0]}} - {{teammatchscore[1]}} {{teamsplaying[1]}}</h1>
-<h3 class="nav-link" routerLink="/game/1" routerLinkActive="active">MAP 1: {{mapsinmatch[0]}}</h3>
-<h3 class="nav-link" routerLink="/game/2" routerLinkActive="active">MAP 2: {{mapsinmatch[1]}}</h3>
-<h3 class="nav-link" routerLink="/game/3" routerLinkActive="active">MAP 3: {{mapsinmatch[2]}}</h3>
-<h3 class="nav-link" routerLink="/game/4" routerLinkActive="active">MAP 4: {{mapsinmatch[3]}}</h3>
-</ol>
-
-<ol>
-  <h1 routerLink="/team/{{teamsplaying[0]}}" routerLinkActive="active">{{teamsplaying[0]}}</h1>
-  <p class='one'>MATCH STATISTICS</p>
-  <table>
-      <tr>
-        <th>PLAYER</th>
-        <th>ACS</th>
-        <th>K</th>
-        <th>D</th>
-        <th>A</th>
-        <th>+/-</th>
-        <th>ADR</th>
-        <th>HS%</th>
-        <th>FK</th>
-        <th>FD</th>
-      </tr>
-  </table>
-
-
-  <li class="nav-link" routerLink="/player/{{team1[0]}}" routerLinkActive="active">{{team1[0]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats0, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-
-  <li class="nav-link" routerLink="/player/{{team1[1]}}" routerLinkActive="active">{{team1[1]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats1, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  
-  <li class="nav-link" routerLink="/player/{{team1[2]}}" routerLinkActive="active">{{team1[2]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats2, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  <li class="nav-link" routerLink="/player/{{team1[3]}}" routerLinkActive="active">{{team1[3]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats3, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  <li class="nav-link" routerLink="/player/{{team1[4]}}" routerLinkActive="active">{{team1[4]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats4, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-</ol>
-
-<ol>
-  <h1 routerLink="/team/{{teamsplaying[1]}}" routerLinkActive="active">{{teamsplaying[1]}}</h1>
-  <p class='one'>MATCH STATISTICS</p>
-  <table>
-      <tr>
-        <th>Player</th>
-        <th>ACS</th>
-        <th>K</th>
-        <th>D</th>
-        <th>A</th>
-        <th>+/-</th>
-        <th>ADR</th>
-        <th>HS%</th>
-        <th>FK</th>
-        <th>FD</th>
-      </tr>
-  </table>
-  <li class="nav-link" routerLink="/player/{{team2[0]}}" routerLinkActive="active">{{team2[0]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats5, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-
-  <li class="nav-link" routerLink="/player/{{team2[1]}}" routerLinkActive="active">{{team2[1]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats6, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  
-  <li class="nav-link" routerLink="/player/{{team2[2]}}" routerLinkActive="active">{{team2[2]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats7, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  <li class="nav-link" routerLink="/player/{{team2[3]}}" routerLinkActive="active">{{team2[3]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats8, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  <li class="nav-link" routerLink="/player/{{team2[4]}}" routerLinkActive="active">{{team2[4]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats9, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
+<h1>"{{match.teams[0]}}" {{match.score[0]}} - {{match.score[1]}} "{{match.teams[1]}}"</h1>
+<h3 class="nav-link" routerLink="/game/1" routerLinkActive="active">MAP 1: {{match.mapsPlayed[0]}} {{match.gamesTime[0]}} {{match.gameScore[0]}} {{activeStatusString1}}</h3>
+<h3 class="nav-link" routerLink="/game/2" routerLinkActive="active">MAP 2: {{match.mapsPlayed[1]}} {{match.gamesTime[1]}} {{match.gameScore[1]}} {{activeStatusString2}}</h3>
+<h3 class="nav-link" routerLink="/game/3" routerLinkActive="active">MAP 3: {{match.mapsPlayed[2]}} {{match.gamesTime[2]}} {{match.gameScore[2]}} {{activeStatusString3}}</h3>
+<h3 class="nav-link" routerLink="/game/4" routerLinkActive="active">MAP 4: {{match.mapsPlayed[3]}} {{match.gamesTime[3]}} {{match.gameScore[3]}} {{activeStatusString4}}</h3>
 </ol>
