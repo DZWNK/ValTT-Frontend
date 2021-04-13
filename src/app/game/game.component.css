@@ -40,6 +40,9 @@ ol {
    font-size: .5em;
   }
 
+  button{
+  display: block;
+  }
   h1 {
     text-align: center;
   font-family: 'Exo', sans-serif;
@@ -60,6 +63,7 @@ ol {
   }
   table tr th{
   padding-right: 60px;
+  padding-left: 60px;
   font-family: 'Exo', sans-serif;
   }
   

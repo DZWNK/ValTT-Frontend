@@ -9,7 +9,7 @@
 <ol>
     <h1>ROUND OVERVIEW</h1>
     <div class="grid-container">
-        <div *ngFor="let round of game.rounds; let i = index">{{i+1}}
+        <div *ngFor="let round of game.rounds; let i = index" (click)="setStats()">{{i+1}}
             <p *ngIf= "round.winner == 'CLOUD 9'" class="image"></p>
             <p *ngIf= "round.winner == 'MIBR'" class="image2"></p>
             <p class="roundText">{{round.winType}}</p>
@@ -18,8 +18,7 @@
 </ol>
 
 <ol>
-    <h1>teamname</h1>
-    <p class='one'>MAP STATISTICS</p>
+    <h1>MAP STATISTICS</h1>
     <table>
         <tr>
             <th>Player</th>

@@ -23,4 +23,8 @@ selected: number;
 
   ngOnInit(): void {
   }
+
+  setStats(){
+    
+  }
 }
