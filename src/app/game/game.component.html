@@ -10,107 +10,32 @@
 <div *ngIf="true">
     NG IF TRUE
 </div>
+
 <div *ngFor="let i of array">
     {{i}}
 </div>
 
 <ol>
     <h1>ROUND OVERVIEW</h1>
-
     <div class="grid-container">
-        <div>1
-            <p class="image"></p>
-            <p class="roundText">{{game.rounds[1].winType}}</p>
-        </div>
-        <div>2
-            <p class="image2"></p>
-            <p class="roundText">{{game.rounds[2].winType}}</p>
-        </div>
-        <div>3
-            <p class="image"></p>
-            <p class="roundText">DETONATION</p>
-        </div>
-        <div>4
-            <p class="image2"></p>
-            <p class="roundText">ELIMINATION</p>
-        </div>
-        <div>5
-            <p class="image"></p>
-            <p class="roundText">DETONATION</p>
-        </div>
-        <div>6
-            <p class="image2"></p>
-            <p class="roundText">ELIMINATION</p>
-        </div>
-        <div>7
-            <p class="image2"></p>
-            <p class="roundText">ELIMINATION</p>
-        </div>
-        <div>8
-            <p class="image"></p>
-            <p class="roundText">DEFUSE</p>
-        </div>
-        <div>9
-            <p class="image2"></p>
-            <p class="roundText">DETONATION</p>
-        </div>
-        <div>10
-            <p class="image2"></p>
-            <p class="roundText">ELIMINATION</p>
-        </div>
-        <div>11
-            <p class="image"></p>
-            <p class="roundText">ELIMINATION</p>
-        </div>
-        <div>12
-            <p class="image"></p>
-            <p class="roundText">DEFUSE</p>
-        </div>
-        <div>13
-            <p class="image"></p>
-            <p class="roundText">DETONATION</p>
-        </div>
-        <div>14
-            <p class="image2"></p>
-            <p class="roundText">DETONATION</p>
-        </div>
-        <div>15
-            <p class="image2"></p>
-            <p class="roundText">ELIMINATION</p>
-        </div>
-        <div>16
-            <p class="image"></p>
-            <p class="roundText">DETONATION</p>
-        </div>
-        <div>17
-            <p class="image"></p>
-            <p class="roundText">ELIMINATION</p>
-        </div>
-        <div>18
-            <p class="image"></p>
-            <p class="roundText">ELIMINATION</p>
-        </div>
-        <div>19
-            <p class="image"></p>
-            <p class="roundText">ELIMINATION</p>
-        </div>
-        <div>20
-            <p class="image"></p>
-            <p class="roundText">DEFUSE</p>
-        </div>
-        <div>21
-            <p class="image"></p>
-            <p class="roundText">DETONATION</p>
-        </div>
-        <div>22
-            <p class="image2"></p>
-            <p class="roundText">DEFUSE</p>
+        <div *ngFor="let round of game.rounds; let i = index">{{i+1}}
+            <p *ngIf= "round.winner == 'CLOUD 9'" class="image"></p>
+            <p *ngIf= "round.winner == 'MIBR'" class="image2"></p>
+            <p class="roundText">{{round.winType}}</p>
         </div>
     </div>
 </ol>
 
+<div *ngFor="let round of game.rounds">
+<div *ngFor="let team of round.teams">{{team.teamName}}{{team.players}}</div>
+</div>
+
+<div *ngFor="let round of game.rounds">
+    <div *ngFor="let team of round.teams; let i = index">{{team.teamName}}{{team.players[i]}}</div>
+    </div>
+
 <ol>
-    <h1></h1>
+    <h1>teamname</h1>
     <p class='one'>MAP STATISTICS</p>
     <table>
         <tr>
@@ -126,3 +51,7 @@
             <th>FD</th>
         </tr>
     </table>
+
+
+
+</ol>
