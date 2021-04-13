@@ -16,7 +16,7 @@
         </div>
     </div>
 </ol>
-
+<h1>ROUND: {{selected + 1}}</h1>
 <ol>
     <h1>MAP STATISTICS</h1>
     <table>
@@ -34,7 +34,7 @@
         </tr>
 
         <tr *ngFor="let player of game.rounds[selected].teams[0].players">
-            {{selected}}
+
             <td>{{player.player}}</td>
             <td>{{player.averageCombatScore}}</td>
             <td>{{player.kills}}</td>
