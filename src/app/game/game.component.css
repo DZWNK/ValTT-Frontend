@@ -38,7 +38,10 @@ ol {
 
   .roundText{
    font-size: .5em;
-    
+  }
+
+  button{
+  display: block;
   }
   h1 {
     text-align: center;
@@ -53,12 +56,13 @@ ol {
   }
   h3 {
     font-family: 'Exo', sans-serif;
-    background: #ebc8c8; 
+    background: #6aa7b6dc; 
     margin-left: 35px;
     border: 1px solid black;
   
   }
   table tr th{
+  padding-right: 60px;
   padding-left: 60px;
   font-family: 'Exo', sans-serif;
   }

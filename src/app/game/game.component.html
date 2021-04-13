@@ -3,40 +3,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap" rel="stylesheet">
 
 <ol class='topspace'>
-    <h1>test</h1>
     <h2 class='one'></h2>
 </ol>
-
-<div *ngIf="true">
-    NG IF TRUE
-</div>
-
-<div *ngFor="let i of array">
-    {{i}}
-</div>
 
 <ol>
     <h1>ROUND OVERVIEW</h1>
     <div class="grid-container">
-        <div *ngFor="let round of game.rounds; let i = index">{{i+1}}
+        <div *ngFor="let round of game.rounds; let i = index" (click)="setStats(i)">{{i+1}}
             <p *ngIf= "round.winner == 'CLOUD 9'" class="image"></p>
             <p *ngIf= "round.winner == 'MIBR'" class="image2"></p>
             <p class="roundText">{{round.winType}}</p>
         </div>
     </div>
 </ol>
-
-<div *ngFor="let round of game.rounds">
-<div *ngFor="let team of round.teams">{{team.teamName}}{{team.players}}</div>
-</div>
-
-<div *ngFor="let round of game.rounds">
-    <div *ngFor="let team of round.teams; let i = index">{{team.teamName}}{{team.players[i]}}</div>
-    </div>
-
+<h1>ROUND: {{selected + 1}}</h1>
 <ol>
-    <h1>teamname</h1>
-    <p class='one'>MAP STATISTICS</p>
+    <h1>MAP STATISTICS</h1>
     <table>
         <tr>
             <th>Player</th>
@@ -50,8 +32,33 @@
             <th>FK</th>
             <th>FD</th>
         </tr>
+
+        <tr *ngFor="let player of game.rounds[selected].teams[0].players">
+
+            <td>{{player.player}}</td>
+            <td>{{player.averageCombatScore}}</td>
+            <td>{{player.kills}}</td>
+            <td>{{player.deaths}}</td>
+            <td>{{player.assists}}</td>
+            <td>{{player.plusMinus}}</td>
+            <td>{{player.averageDamageRound}}</td>
+            <td>{{player.headShotPercentage}}</td>
+            <td>{{player.firstKills}}</td>
+            <td>{{player.firstDeaths}}</td>
+        </tr>
+    <hr/>
+        <tr *ngFor="let player of game.rounds[selected].teams[1].players">
+            <td>{{player.player}}</td>
+            <td>{{player.averageCombatScore}}</td>
+            <td>{{player.kills}}</td>
+            <td>{{player.deaths}}</td>
+            <td>{{player.assists}}</td>
+            <td>{{player.plusMinus}}</td>
+            <td>{{player.averageDamageRound}}</td>
+            <td>{{player.headShotPercentage}}</td>
+            <td>{{player.firstKills}}</td>
+            <td>{{player.firstDeaths}}</td>
+        </tr>
     </table>
-
-
 
 </ol>

@@ -16,7 +16,7 @@ export class MatchComponent implements OnInit {
 
   match: Match;
 
-  round: number;
+  selected: number;
 
   private matchSub: Subscription;
 
@@ -27,7 +27,7 @@ export class MatchComponent implements OnInit {
       console.log(this.match);
     });
     this.match = new Match('7');
-    this.round = 0;
+    this.selected = 0;
   }
 
   ngOnDestroy(){
@@ -35,7 +35,7 @@ export class MatchComponent implements OnInit {
   }
 
   setRound(index: number){
-    this.round = index;
+    this.selected = index;
   }
 
 }
