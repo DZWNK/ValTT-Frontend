@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { EventManagerService } from '../event-manager.service';
 import { TeamManagerService } from '../team-manager.service';
 import { TeamPreview } from 'src/models/TeamPreview';
+import { date } from 'joi';
 
 @Component({
   selector: 'app-event-creation',
@@ -130,7 +131,7 @@ export class EventCreationComponent implements OnInit {
   }
 
   selectedTeam(event: any, index: number){
-    this.event.teams[index].name = event.target.value;
+    this.event.teams[index].teamName = event.target.value;
     let tmp: any;
     this.tmpSub = this.teamManagerService.getTeamByName(event.target.value).subscribe(data=>{
       // console.log(`Subscription Resolve:`);
@@ -159,18 +160,25 @@ export class EventCreationComponent implements OnInit {
   }
 
   saveEvent(){
+    console.log("SAVING EVENT")
     console.log(this.event);
+    this.eventManagerService.updateEvent(this.event._id, this.event).subscribe(data =>{
+      console.log("SAVING EVENT SUBSCRIPTION")
+      console.log(data)
+    })
   }
 
   receiveUpdate($event){
     console.log("RECEIVING UPDATE")
     console.log($event);
     this.event.brackets[$event.index].matches = $event.matches;
-    this.eventManagerService.updateEvent(this.event._id, this.event);
   }
 
   saveTeam(){
-    this.teamManagerService.createTeam(new Team(this.event.teams[this.show].name, this.players));
+    this.teamManagerService.createTeam(new Team(this.event.teams[this.show].teamName, this.players)).subscribe(data=>{
+      console.log("SAVING TEAM SUBSCRIPTION")
+      console.log(data)
+    });
     this.players = ['','','','',''];
     this.show = -1;
   }

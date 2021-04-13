@@ -26,6 +26,7 @@ export class EventManagerService {
   }
 
   updateEvent(id: string, event: Event): Observable<Event>{
+    console.log('Saving Team');
     return this.http.post<Event>(`${API_URL}/event/newEvent`, event);
   }
 

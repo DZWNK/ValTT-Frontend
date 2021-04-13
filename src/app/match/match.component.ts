@@ -23,6 +23,7 @@ export class MatchComponent implements OnInit {
   ngOnInit(): void {
     this.matchSub = this.matchManagerService.getMatchById(this.route.snapshot.params['id']).subscribe(data=>{
       // this.match = data;
+      console.log("MATCH SUBSCRIPTION")
       console.log(this.match);
     });
     this.match = new Match('7');
