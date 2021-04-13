@@ -26,6 +26,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { EventCreationComponent } from './event-creation/event-creation.component';
 import { BracketComponent } from './bracket/bracket.component';
 import { BracketEditComponent } from './bracket-edit/bracket-edit.component';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { BracketEditComponent } from './bracket-edit/bracket-edit.component';
     SignupComponent,
     EventCreationComponent,
     BracketComponent,
-    BracketEditComponent
+    BracketEditComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,

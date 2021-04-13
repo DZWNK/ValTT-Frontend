@@ -21,6 +21,7 @@ export class TeamManagerService {
   }
 
   createTeam(team: Team){
+    console.log('-----------------------------------')
     return this.http.post<Team>(`${API_URL}/team/newTeam`, team);
   }
 }

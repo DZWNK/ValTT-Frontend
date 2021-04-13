@@ -6,5 +6,7 @@ export class TeamPreview{
 
     constructor(name: string){
         this.name = name;
+        this.logo = "MIBR.png";
+        this.score = 12;
     }
 }

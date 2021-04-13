@@ -1,17 +1,18 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap" rel="stylesheet">
 <div class="header">
-    <div class="image">
-    <h1>ValTT</h1>
-   </div>
-    <nav>
+   <h1 routerLink="/" routerLinkActive="active">VALTT</h1>
+   <div id='navdiv'>
         <ul>
-            <li class="nav-link" routerLink="/about" routerLinkActive="active">About</li>
-            <li class="nav-link" routerLink="/event_list" routerLinkActive="active">Events</li>
-            <li class="nav-link" routerLink="/team_list" routerLinkActive="active">Teams</li>
-            <li class="nav-link" *ngIf="!loggedIn()" routerLink="/login" routerLinkActive="active">Login</li>
-            <li class="nav-link" *ngIf="!loggedIn()" routerLink="/signup" routerLinkActive="active">Signup</li>
-            <li class="nav-link" *ngIf="loggedIn()" (click)="logoutUser()">Logout</li>
-            <li class="nav-link" routerLink="/favourites" routerLinkActive="active">Favourites</li>
-            <!--<li class="nav-link" routerLink='**' routerLinkActive="active">PageNotFound</li> -->
+            <li> <a class="nav-link" routerLink="/about" routerLinkActive="active">A B O U T</a></li>
+            <li> <a class="nav-link" routerLink="/event_list" routerLinkActive="active">E V E N T S</a></li>
+            <li> <a class="nav-link" routerLink="/team_list" routerLinkActive="active">T E A M S</a></li>
+            <li> <a class="nav-link" routerLink="/favourites" routerLinkActive="active">F A V O U R I T E S</a></li>
+            <li> <a class="nav-link" *ngIf="!loggedIn()" routerLink="/login" routerLinkActive="active">L O G I N</a></li>
+            <li> <a class="nav-link" *ngIf="!loggedIn()" routerLink="/signup" routerLinkActive="active">S I G N U P</a></li>
+            <li> <a class="nav-link" *ngIf="loggedIn()" (click)="logoutUser()">L O G O U T</a></li>
         </ul>
-    </nav>
+    </div>
 </div>
+

@@ -54,6 +54,7 @@ export class SignupComponent implements OnInit {
       password: "",
       confirmpassword: "",
     }
+    this._router.navigate(['/home'])
   }
 
   onSignupSubmit(){

@@ -1,0 +1,86 @@
+ol {
+    background: #6aa7b6dc;
+    padding: 20px;
+    border: 1px solid black;
+  }
+
+h1 {
+  text-align: center;
+  font-family: 'Exo', sans-serif;
+}
+
+  h2 {
+    font-family: 'Exo', sans-serif;
+    background: #6aa7b6dc; 
+    margin-left: 15px;
+    border: 1px solid black;
+  }
+  h3 {
+    font-family: 'Exo', sans-serif;
+    background: #ebc8c8; 
+    margin-left: 35px;
+    border: 1px solid black;
+
+  }
+  table tr th{
+  padding-left: 50px;
+  font-family: 'Exo', sans-serif;
+  }
+
+  .bettext{
+   color: white;
+  }
+
+  .block {
+    border: 1px solid black;
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    background-color: rgb(211, 122, 50);
+  }
+.betp{
+margin:0%;
+color: white;
+}
+
+
+.betting {
+text-align: center;
+
+}
+  .container {
+    text-align: center;
+    width: 50em;
+  }
+
+  .image{
+    height:50px; background-size:100%; width:auto;
+    background-image:url('../../assets/img/ggbet.jpg');
+    background-repeat: no-repeat;
+  }
+  
+p{
+  font-family: 'Exo', sans-serif;
+}
+.one{
+  text-align: center;
+}
+  ol li {
+    font-family: 'Exo', sans-serif;
+    background: #ffe5e5;
+    padding: 5px;
+    margin-left: 35px;
+    border: 1px solid black;
+    
+  }
+  .nav-link:hover {
+    border: 1px solid rgb(0, 0, 0);
+    animation-name: example;
+          animation-duration: 1s;
+  animation-iteration-count: 100;
+  animation-direction: alternate;
+}
+  @keyframes example {
+    from {background-color: rgb(255, 255, 255);}
+    to {background-color: #6aa7b6dc;}
+  }

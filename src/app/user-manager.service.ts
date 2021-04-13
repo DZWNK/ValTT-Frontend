@@ -16,6 +16,8 @@ export class UserManagerService {
   private API_URL_SIGNUP = "https://hidden-garden-36045.herokuapp.com/auth/signup"
   private API_URL_LOGIN = "https://hidden-garden-36045.herokuapp.com/auth/login"
 
+  //  private API_URL_SIGNUP = "https://valtt.herokuapp.com/auth/signup"
+  //private API_URL_LOGIN = "https://valtt.herokuapp.com/auth/login"
   constructor(private http: HttpClient) { }
 
   // the signup user method accepts user object and returns the response 

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventComponent } from './event/event.component';
+import { GameComponent } from './game/game.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { HomeComponent } from './home/home.component';
 import { MatchComponent } from './match/match.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'team/:id', component: TeamComponent },
   { path: 'event/:id', component: EventComponent},
   { path: 'event/edit/:id', component: EventCreationComponent}, //, canActivate: [AuthGuard] 
+  { path: 'game/:id', component: GameComponent },
   { path: 'match/:id', component: MatchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },

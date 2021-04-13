@@ -1,32 +1,47 @@
-@import "~bootstrap/dist/css/bootstrap.css";
-
-body { padding: 20 px; }
 
 ul {
     list-style-type: none;
     overflow: hidden;
 }
+
 input {
     float: right;
 }
 
 .dialog-box {
-    position: fixed;
+    position: relative;
     z-index: 1;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-    align-items: center;
 }
 
 .dialog {
     display: block;
+    background-image:url('../../assets/img/OMEN.png');
+    background-repeat: no-repeat;
+    animation-name: panups;
+    animation-duration: 8s;
+    animation-iteration-count: 100;
+    animation-direction: alternate;
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 0% auto;
     padding: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.529);
-    width: 40%;
+    outline: 1px solid rgba(0, 0, 0, 0.529);
+    width: 20%;
+}
+
+h2{
+   text-align: center; 
+}
+
+form{
+    height:33em; background-size:100%; width:auto;
+
+}
+
+.buttonHolder{ text-align: center; }
+
+@keyframes panups{
+    from {background-position: 50%};
+    to {background-position: 70%};
 }

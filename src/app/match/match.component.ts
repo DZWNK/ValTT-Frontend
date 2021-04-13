@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Match } from "../../models/Match";
+import { TeamPreview } from "../../models/TeamPreview";
+import { MatchManagerService } from '../match-manager.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-match',
@@ -7,13 +11,30 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./match.component.css']
 })
 export class MatchComponent implements OnInit {
+  
+  constructor(private matchManagerService: MatchManagerService, private router: Router, private route: ActivatedRoute) { }
 
-  id: string;
+  match: Match;
 
-  constructor(private route: ActivatedRoute) { }
+  round: number;
+
+  private matchSub: Subscription;
 
   ngOnInit(): void {
-    this.id=this.route.snapshot.params['id'];
+    this.matchSub = this.matchManagerService.getMatchById(this.route.snapshot.params['id']).subscribe(data=>{
+      // this.match = data;
+      console.log(this.match);
+    });
+    this.match = new Match('7');
+    this.round = 0;
+  }
+
+  ngOnDestroy(){
+  this.matchSub.unsubscribe();
+  }
+
+  setRound(index: number){
+    this.round = index;
   }
 
 }

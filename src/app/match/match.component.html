@@ -1,2 +1,31 @@
-<p>match works!</p>
-<h1>{{id}}</h1>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap" rel="stylesheet">
+<div *ngIf="match">
+    <ol>
+        <div class='topspace'>
+            <h1>{{match.event}}</h1>
+        </div>
+        <div class="container">
+            <div class="block">
+                <h1 class="bettext">BETTING</h1>
+                <a href="https://gg.bet/en">
+                    <div class="image"></div>
+                </a>
+                <p class="betp">{{match.teams[0].name}} vs {{match.teams[1].name}}</p>
+                <p class="betp">2.43 to 5</p>
+            </div>
+        </div>
+    </ol>
+
+    <ol>
+        <h1>"{{match.teams[0].name}}" {{match.score[0]}} - {{match.score[1]}} "{{match.teams[1].name}}"</h1>
+        <div *ngFor="let game of match.games; let i = index" (click)="setRound(i)">
+            {{i}}
+            <app-game [game]="game" *ngIf="i == round"></app-game>
+        </div>
+    </ol>
+</div>
+<div *ngIf="!match">
+    Loading...
+</div>

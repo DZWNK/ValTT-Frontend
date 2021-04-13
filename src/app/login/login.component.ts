@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
       login: "",
       password: "",
     }
+    this._router.navigate(['/home'])
   }
 
   onLoginSubmit(){

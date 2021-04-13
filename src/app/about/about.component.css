@@ -1,14 +1,26 @@
 h1 {
+    font-family: 'Exo', sans-serif;
+    margin-top: 2em;
     text-align: center;
 }
 p{
-    padding: 9px;
-    margin: 10px;
+    font-family: 'Exo', sans-serif;
+    font-size: 1.5em;
+    margin: 1em;
     text-shadow: 3px 3px 3px rgb(255, 255, 255);
+    
 }
 .image{
-    height:40em; background-size:contain; width:auto;
+    height:44em; 
     background-image:url('../../assets/img/OMEN.png');
-    background-position:50% 10%;
+    background-position-y: bottom;
+    background-color:rgb(228, 218, 218);
+    font-family: 'Exo', sans-serif;
+    font-size:20px;
+    color:rgb(0, 0, 0);
     background-repeat: no-repeat;
+    background-position-x:100%
+
 }
+
+
