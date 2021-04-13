@@ -20,8 +20,8 @@ export class EventComponent implements OnInit {
 
   ngOnInit(): void {
     this.eventSub = this.eventManagerService.getEventById(this.route.snapshot.params['id']).subscribe(data=>{
-      this.event = data[0];
-      console.log(this.event)
+      this.event = data;
+      console.log(this.event);
     });
   }
 

@@ -3,7 +3,7 @@
     flex-direction: row;
     border: 1px solid;
     margin: 5px;
-    overflow: scroll;
+    overflow-x: scroll;
 }
 
 .round {
@@ -26,13 +26,14 @@
 }
 
 .match {
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex: 1;
     margin-top: 10%;
     margin-bottom: 10%;
-    width: 6em;
+    width: 13em;
 }
 
 .match-teams:hover {

@@ -3,26 +3,27 @@
     <h1>Featured Events</h1>
     <div class="featured-events">
         <div class="event running" (click)="loadEvent('TestEvent1')">
-            <h3>Event1</h3>
-            <img src="../../assets/img/Event1.jpg" alt="Event1" class="event-img">
+            <h3 style="text-align: center;">Event1</h3>
+            <img src="../../assets/img/EventLogo.jpg" alt="Event1" class="event-img">
         </div>
         <div class="event notRunning" (click)="loadEvent('TestEvent2')">
-            <h3>Event2</h3>
-            <img src="../../assets/img/Event1.jpg" alt="Event1" class="event-img">
+            <h3 style="text-align: center;">Event2</h3>
+            <img src="../../assets/img/EventLogo.jpg" alt="Event1" class="event-img">
         </div>
     </div>
     <h1>Verified Events</h1>
     <div class="verified-events">
-        <div class="event" *ngFor="let event of verifiedEvents" (click)="loadEvent(event.id)">
-            <h3>{{event.name}}</h3>
-            <img src="../../assets/img/Event1.jpg" alt="Event1" class="event-img">
+        <div class="event running" *ngFor="let event of verifiedEvents" (click)="loadEvent(event.id)">
+            <h3 style="text-align: center;">{{event.name}}</h3>
+            <img src="../../assets/img/EventLogo.jpg" alt="Event1" class="event-img">
         </div>
     </div>
+    <h1>Unverified Events</h1>
     <div class="unverified-events">
-        <h1>Unverified Events</h1>
         <div class="event" *ngFor="let event of unverifiedEvents" (click)="loadEvent(event.id)">
             <div [ngClass]="{'running': event.runninStatus,'notRunning': event.runninStatus}">
-                {{event.name}}
+                <h3 style="text-align: center;">{{event.name}}</h3>
+                <img src="../../assets/img/EventLogo.jpg" alt="Event1" class="event-img">
             </div>
         </div>
         <div class="unverified-container">

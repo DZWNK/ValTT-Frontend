@@ -22,6 +22,11 @@ export class EventManagerService {
   }
 
   getEventById(id: string): Observable<Event>{
-    return this.http.get<Event>(`${API_URL}/event?id=${id}`);
+    return this.http.get<Event>(`${API_URL}/event/event?id=${id}`);
   }
+
+  updateEvent(id: string, event: Event): Observable<Event>{
+    return this.http.post<Event>(`${API_URL}/event/newEvent`, event);
+  }
+
 }

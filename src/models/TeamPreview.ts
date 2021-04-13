@@ -1,4 +1,5 @@
 export class TeamPreview{
+    id: string;
     name: string;
     logo: string;
     score: number;

@@ -1,6 +1,7 @@
 .featured-events {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20em);
+    grid-gap: 0.1em;
 }
 
 .event {
@@ -19,6 +20,17 @@
 }
 
 .verified-events {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    grid-gap: 0.1em;
+}
+
+.unverified-events {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    grid-gap: 0.1em;
+}
+
+.event-img {
+    width: 18em;
 }

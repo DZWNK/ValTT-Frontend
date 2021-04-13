@@ -3,7 +3,8 @@
     flex-direction: row;
     border: 1px solid;
     margin: 5px;
-    overflow: scroll;
+    overflow-x: scroll;
+    background-color: rgb(191, 219, 255);
 }
 
 .round {
@@ -32,7 +33,7 @@
     flex: 1;
     margin-top: 10%;
     margin-bottom: 10%;
-    width: 6em;
+    width: 13em;
 }
 
 .b::before {
@@ -60,7 +61,11 @@
 }
 
 .team {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     padding: 5px;
     border: 1px solid;
     width: 100%;
+    background-color: white;
 }

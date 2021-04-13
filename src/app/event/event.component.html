@@ -1,8 +1,8 @@
 <ng-container *ngIf="event">
     <button (click)="edit(event._id)">Edit</button>
-    <h1>ID: {{event._id}}</h1>
+    <h1 style="text-align: center;">{{event.name}}</h1>
+    <p style="text-align: center;">{{event.watchLink}}</p>
+    <p style="text-align: center;">{{event.startDate}} — {{event.endDate}}</p>
     <hr>
-    <h1>Event Name: {{event.name}}</h1>
-    brackets: {{event.brackets.length}}
     <app-bracket *ngFor="let bracket of event.brackets" [matches]="bracket.matches"></app-bracket>
 </ng-container>

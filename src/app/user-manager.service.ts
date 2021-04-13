@@ -13,8 +13,8 @@ import { Router } from '@angular/router'
 export class UserManagerService {
 
 
-  private API_URL_SIGNUP = "https://ancient-river-08888.herokuapp.com/auth/signup"
-  private API_URL_LOGIN = "https://ancient-river-08888.herokuapp.com/auth/login"
+  private API_URL_SIGNUP = "https://hidden-garden-36045.herokuapp.com/auth/signup"
+  private API_URL_LOGIN = "https://hidden-garden-36045.herokuapp.com/auth/login"
 
   constructor(private http: HttpClient) { }
 

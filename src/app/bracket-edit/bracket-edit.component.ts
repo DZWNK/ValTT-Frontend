@@ -1,4 +1,4 @@
-import { Component, Input, IterableDiffer, IterableDiffers, IterableChanges, OnInit, DoCheck} from '@angular/core';
+import { Component, Input, IterableDiffer, IterableDiffers, IterableChanges, OnInit, DoCheck, Output, EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
 import { MatchPreview } from '../../models/MatchPreview';
 import { Team } from '../../models/Team';
@@ -16,6 +16,14 @@ export class BracketEditComponent implements OnInit {
   @Input('teams')
   teams: Array<Team>;
 
+  @Input('bracketIndex')
+  bracketIndex: number;
+
+  @Output()
+  updateBracket = new EventEmitter<any>();
+
+  tmp: any;
+
   roundTotal: number;
   rounds: Array<Array<number>>;
   _diff: IterableDiffer<MatchPreview>;
@@ -23,25 +31,26 @@ export class BracketEditComponent implements OnInit {
   constructor(private router: Router, private _itterableDiffers: IterableDiffers) { }
 
   ngOnInit(): void {
-    console.log("INITIALIZATION")
-    console.log("teams:")
-    console.log(this.teams)
-    console.log("matches:")
-    console.log(this.matches)
-    console.log(this.matches[0].match.teams[0].name)
-    //this.teams = ["Cloud 9", "NRG", "Luminosity", "Gen G"];
-    //console.log(this.matches[0].winner);
+    // console.log("----- Bracket Edit -----")
+    // console.log("teams:")
+    // console.log(this.teams)
+    // console.log("matches:")
+    // console.log(this.matches)
+    // console.log(this.matches[0].match.teams[0].name)
     this._diff = this._itterableDiffers.find(this.matches).create();
     this.populateBracket();
+    // console.log("----- Bracket Edit End -----")
   }
   
   ngDoCheck(): void{
-    console.log("Do Check");
-    console.log(this.teams)
+    // console.log("----- Do Check -----");
+    // console.log(this.teams)
     const changes: IterableChanges<MatchPreview> = this._diff.diff(this.matches);
     if(changes){
       this.populateBracket();
     }
+    // console.log("----- Do Check End -----");
+    this.sendUpdate();
   }
 
   loadMatch(index: number): void {
@@ -53,15 +62,12 @@ export class BracketEditComponent implements OnInit {
   }
 
   populateBracket() {
-    console.log('matches:');
-    console.log(this.matches);
     this.findRounds();
     // Initialize Arrays
     if (this.roundTotal > 0) {
       this.rounds = Array(this.roundTotal);
       for (let i = 0; i < this.rounds.length; i++) {
         this.rounds[i] = Array(0);
-        console.log(`Round ${i}: initialized`);
       }
       // Populate first round
       let roundMatches = 1;
@@ -74,11 +80,12 @@ export class BracketEditComponent implements OnInit {
         for (let ii = 0; ii < this.rounds[i].length; ii++) {
           this.rounds[i][ii] = matchIndex--;
         }
+        this.rounds[i].reverse()
       }
     }
-    console.log(`roundTotal: ${this.roundTotal}`);
-    console.log('rounds:');
-    console.log(this.rounds);
+    // console.log(`roundTotal: ${this.roundTotal}`);
+    // console.log('rounds:');
+    // console.log(this.rounds);
   }
 
   findRounds(){
@@ -96,15 +103,34 @@ export class BracketEditComponent implements OnInit {
   }
 
   selectedTeam(event: any, match: any, team: number){
-    console.log(`Match: ${match} \t Team: ${team}`);
-    console.log(`target value: ${event.target.value}`);
-    console.log(`old value: ${this.matches[match].match.teams[team].name}`);
     this.matches[match].match.teams[team].name = event.target.value;
-    console.log(`new value: ${this.matches[match].match.teams[team].name}`);
   }
 
-  win(match: number, team: number){
-    console.log(`Match: ${match} | Team: ${team}`);
+  win(match: number, team: number, teamPush: number){
+    // console.log(`Match: ${match} | Team: ${team}`);
+    // console.log(this.matches[match].match.teams[team].name);
+    // console.log(this.rounds);
+    let flag = false;
+    let counter = 0;
+    for(let i=0; i<this.rounds.length; i++){
+      for(let ii=0; ii<this.rounds[i].length; ii++){
+          if (match == this.rounds[i][ii]){
+            flag = true;
+            break;
+          }
+      }
+      if (flag){
+        let relativeMatch = Math.floor((match - counter)/2);
+        counter += this.rounds[i].length;
+        this.matches[(counter + relativeMatch)].match.teams[teamPush].name = this.matches[match].match.teams[team].name;
+        break;
+      }
+      counter += this.rounds[i].length;
+    }
+  }
+
+  sendUpdate(){
+    this.updateBracket.emit({matches: this.matches, index: this.bracketIndex});
   }
 
 }

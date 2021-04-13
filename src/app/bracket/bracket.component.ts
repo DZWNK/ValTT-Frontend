@@ -20,7 +20,6 @@ export class BracketComponent implements OnInit{
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    //this.matches = [new MatchPreview("Cloud 9", "NRG"), new MatchPreview("Luminosity", "Gen G"), new MatchPreview("Gen G", "Cloud 9")];
     this.populateBracket();
   }
 

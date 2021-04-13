@@ -15,7 +15,7 @@ export class MatchPreview{
 
     constructor(Name1: string, Name2: string){
         this.match = {
-            id: `Match[${Name1}]`,
+            id: '',
             teams: [new TeamPreview(Name1), new TeamPreview(Name2)],
             score: [0,0],
             winner: 0,
@@ -24,5 +24,6 @@ export class MatchPreview{
             timePlayed: new Date(),
             winsNeeded: 1
         };
+        this.prize = '';
     }
 }

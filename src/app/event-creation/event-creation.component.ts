@@ -5,6 +5,8 @@ import { Team } from 'src/models/Team';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EventManagerService } from '../event-manager.service';
+import { TeamManagerService } from '../team-manager.service';
+import { TeamPreview } from 'src/models/TeamPreview';
 
 @Component({
   selector: 'app-event-creation',
@@ -13,17 +15,44 @@ import { EventManagerService } from '../event-manager.service';
 })
 export class EventCreationComponent implements OnInit {
 
-  constructor(private eventManagerService: EventManagerService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private eventManagerService: EventManagerService,
+    private teamManagerService: TeamManagerService, 
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
+  teams: Array<TeamPreview>;
+  tmp: TeamPreview;
   event: Event;
+  show: number;
+  players: Array<string>;
 
   private eventSub: Subscription;
+  private teamsSub: Subscription;
+  private tmpSub: Subscription;
 
   ngOnInit(): void {
+    this.show = -1;
+    this.players = ['','','','','']
     this.eventSub = this.eventManagerService.getEventById(this.route.snapshot.params['id']).subscribe(data=>{
-      this.event = data[0];
-      console.log(this.event);
+      this.event = data;
+      // console.log('Event:')
+      // console.log(this.event);
     });
+    this.teamsSub = this.teamManagerService.getVerifiedTeams().subscribe(data=>{
+      this.teams = data;
+      // console.log('Teams:')
+      // console.log(this.teams);
+    });
+  }
+
+  ngOnDestroy(): void{
+    this.eventSub.unsubscribe();
+    this.teamsSub.unsubscribe();
+    if(this.tmpSub){
+      this.tmpSub.unsubscribe();
+    }
   }
 
   addBracket() {
@@ -46,38 +75,42 @@ export class EventCreationComponent implements OnInit {
   }
 
   increment(match: number) {
-    console.log('----- Increment -----');
+    // console.log('----- Increment -----');
+    // console.log("MATCHES_START:")
+    // console.log(this.event.brackets[match].matches);
     let roundMatches = 1;
     let rounds = this.numRounds(match);
-    console.log(`rounds: ${rounds}`);
+    // console.log(`rounds: ${rounds}`);
     for(let i=0; i<rounds; i++){
       roundMatches *= 2;
-      console.log(`Round: ${i+1} roundMatches: ${roundMatches}`);
+      // console.log(`Round: ${i+1} roundMatches: ${roundMatches}`);
     }
     for(let i=0;i<roundMatches;i++){
-      console.log(this.event.brackets[match].matches[0]);
-      this.event.brackets[match].matches.unshift(new MatchPreview('a', 'b'));
-      console.log("End")
+      // console.log(this.event.brackets[match].matches[0]);
+      if(this.event.brackets[match].matches[i]){
+        this.event.brackets[match].matches.unshift(new MatchPreview('', ''));
+      }
+      // console.log("End")
     }
-    console.log("e2")
-    console.log(this.event.brackets[match].matches);
-    console.log('----- Increment End -----');
+    // console.log("MATCHES_END")
+    // console.log(this.event.brackets[match].matches);
+    // console.log('----- Increment End -----');
   }
 
   decrement(match: number) {
-    console.log('----- Decrement -----');
+    // console.log('----- Decrement -----');
     let roundMatches = 1;
     let rounds = this.numRounds(match);
-    console.log(`rounds: ${rounds}`);
+    // console.log(`rounds: ${rounds}`);
     for(let i=1; i<rounds; i++){
       roundMatches *= 2;
-      console.log(`Round: ${i} roundMatches: ${roundMatches}`);
+      // console.log(`Round: ${i} roundMatches: ${roundMatches}`);
     }
     for(let i=0; i<roundMatches; i++){
       this.event.brackets[match].matches.shift();
     }
-    console.log(this.event.brackets[match].matches);
-    console.log('----- Decrement End -----');
+    // console.log(this.event.brackets[match].matches);
+    // console.log('----- Decrement End -----');
   }
 
   // Calculate number of rounds
@@ -98,6 +131,15 @@ export class EventCreationComponent implements OnInit {
 
   selectedTeam(event: any, index: number){
     this.event.teams[index].name = event.target.value;
+    let tmp: any;
+    this.tmpSub = this.teamManagerService.getTeamByName(event.target.value).subscribe(data=>{
+      // console.log(`Subscription Resolve:`);
+      // console.log(data)
+      tmp = data;
+      if(tmp?.message){
+        this.show = index;
+      }
+    })
   }
 
   view(id: string){
@@ -105,13 +147,31 @@ export class EventCreationComponent implements OnInit {
   }
 
   addTeam(){
-    console.log("Push");
-    console.log(this.event.teams);
-    this.event.teams.push(new Team(''));
-    console.log(this.event.teams);
+    this.event.teams.push(new Team('', ['','','','','']));
   }
 
   removeTeam(index: number){
     this.event.teams.splice(index, 1);
+  }
+
+  closeOverlay(){
+    this.show = -1;
+  }
+
+  saveEvent(){
+    console.log(this.event);
+  }
+
+  receiveUpdate($event){
+    console.log("RECEIVING UPDATE")
+    console.log($event);
+    this.event.brackets[$event.index].matches = $event.matches;
+    this.eventManagerService.updateEvent(this.event._id, this.event);
+  }
+
+  saveTeam(){
+    this.teamManagerService.createTeam(new Team(this.event.teams[this.show].name, this.players));
+    this.players = ['','','','',''];
+    this.show = -1;
   }
 }
