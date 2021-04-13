@@ -11,7 +11,6 @@ export class Stats{
     firstDeaths: string;
 
     constructor(i: string){
-
         this.averageCombatScore = i;
         this.kills = "27";
         this.deaths = "19";

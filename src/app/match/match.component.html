@@ -12,16 +12,16 @@
      <a href="https://gg.bet/en">
     <div class="image"></div>
   </a>
-  <p class="betp">{{match.teams[0]}} vs {{match.teams[1]}}</p>
+  <p class="betp">{{match.teams[0].name}} vs {{match.teams[1].name}}</p>
   <p class="betp">2.43 to 5</p>
   </div>
 </div>
 </ol>
 
 <ol>
-<h1>"{{match.teams[0]}}" {{match.score[0]}} - {{match.score[1]}} "{{match.teams[1]}}"</h1>
-<h3 class="nav-link" routerLink="/game/1" routerLinkActive="active">MAP 1: {{match.mapsPlayed[0]}} {{match.gamesTime[0]}} {{match.gameScore[0]}} {{activeStatusString1}}</h3>
-<h3 class="nav-link" routerLink="/game/2" routerLinkActive="active">MAP 2: {{match.mapsPlayed[1]}} {{match.gamesTime[1]}} {{match.gameScore[1]}} {{activeStatusString2}}</h3>
-<h3 class="nav-link" routerLink="/game/3" routerLinkActive="active">MAP 3: {{match.mapsPlayed[2]}} {{match.gamesTime[2]}} {{match.gameScore[2]}} {{activeStatusString3}}</h3>
-<h3 class="nav-link" routerLink="/game/4" routerLinkActive="active">MAP 4: {{match.mapsPlayed[3]}} {{match.gamesTime[3]}} {{match.gameScore[3]}} {{activeStatusString4}}</h3>
+<h1>"{{match.teams[0].name}}" {{match.score[0]}} - {{match.score[1]}} "{{match.teams[1].name}}"</h1>
+<h3 class="nav-link" routerLink="/game/1" routerLinkActive="active">MAP 1: {{match.games[0].mapName}} {{match.games[0].time}} {{match.games[0].score}}</h3>
+<h3 class="nav-link" routerLink="/game/2" routerLinkActive="active">MAP 2: {{match.games[1].mapName}} {{match.games[1].time}} {{match.games[0].score}}</h3>
+<h3 class="nav-link" routerLink="/game/3" routerLinkActive="active">MAP 3: {{match.games[2].mapName}} {{match.games[2].time}} {{match.games[0].score}}</h3>
+<h3 class="nav-link" routerLink="/game/4" routerLinkActive="active">MAP 4: {{match.games[3].mapName}} {{match.games[3].time}} {{match.games[0].score}}</h3>
 </ol>

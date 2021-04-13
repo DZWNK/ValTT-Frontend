@@ -1,8 +1,13 @@
 h1 {
+    font-family: 'Exo', sans-serif;
+    margin-top: 2em;
     text-align: center;
 }
 p{
-    margin: 4%;
+    font-family: 'Exo', sans-serif;
+    font-size: 1.5em;
+    margin: 1em;
+    text-shadow: 3px 3px 3px rgb(255, 255, 255);
     
 }
 .image{

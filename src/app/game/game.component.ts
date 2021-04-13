@@ -40,7 +40,7 @@ export class GameComponent implements OnInit {
     this.stats = new Stats("265");
 
     this.mapname = "BIND";
-    this.teamgamescore = ["8", "13"];
+    this.teamgamescore = ["9", "13"];
     this.teamsplaying = ["MIBR", "CLOUD9"];
     this.team1 = ["xand", "Quick", "Nozwerr", "Khalil", "txddy"];
     this.team2 = ["deNaro", "gaabxx", "prozin", "fra", "light"]; // needs to be an array of arrays

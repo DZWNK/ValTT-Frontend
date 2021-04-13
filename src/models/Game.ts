@@ -1,14 +1,38 @@
-import { Stats } from "./Stats"; //I want to make an
+import { Round } from "./Round";
+
 export class Game{
-    teams: string;
-    score: string;
+    score: Array<Number>;
     mapName: string;
     status: boolean;
-    time: string;
-    winType: string;
-    constructor(time: string){
-        this.time = time;
- 
-        
+    time: Date;
+    rounds: Array<Round>
+    
+    constructor(i: string){
+    this.score = [13, 9];
+    this.mapName = i;
+    this.status = true;
+    this.time = new Date();
+    this.rounds = [new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),
+    new Round("CLOUD 9"),]
     }
 }
