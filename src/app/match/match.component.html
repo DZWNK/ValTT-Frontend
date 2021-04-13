@@ -22,7 +22,7 @@
         <h1>"{{match.teams[0].name}}" {{match.score[0]}} - {{match.score[1]}} "{{match.teams[1].name}}"</h1>
         <div *ngFor="let game of match.games; let i = index" (click)="setRound(i)">
             {{i}}
-            <app-game [game]="game" *ngIf="i == round"></app-game>
+            <app-game [game]="game" [selected]="selected" *ngIf="i == selected"></app-game>
         </div>
     </ol>
 </div>

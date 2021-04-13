@@ -16,6 +16,9 @@ export class GameComponent implements OnInit {
   @Input('game')
   game: Game;
 
+@Input('selected')
+selected: number;
+
   array: ['1','2','3a','4b','e']
 
   ngOnInit(): void {

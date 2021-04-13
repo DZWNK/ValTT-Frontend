@@ -26,14 +26,6 @@
     </div>
 </ol>
 
-<div *ngFor="let round of game.rounds">
-<div *ngFor="let team of round.teams">{{team.teamName}}{{team.players}}</div>
-</div>
-
-<div *ngFor="let round of game.rounds">
-    <div *ngFor="let team of round.teams; let i = index">{{team.teamName}}{{team.players[i]}}</div>
-    </div>
-
 <ol>
     <h1>teamname</h1>
     <p class='one'>MAP STATISTICS</p>
@@ -50,6 +42,33 @@
             <th>FK</th>
             <th>FD</th>
         </tr>
+
+        <tr *ngFor="let player of game.rounds[selected].teams[0].players">
+            <td>{{player.player}}</td>
+            <td>{{player.averageCombatScore}}</td>
+            <td>{{player.kills}}</td>
+            <td>{{player.deaths}}</td>
+            <td>{{player.assists}}</td>
+            <td>{{player.plusMinus}}</td>
+            <td>{{player.averageDamageRound}}</td>
+            <td>{{player.headShotPercentage}}</td>
+            <td>{{player.firstKills}}</td>
+            <td>{{player.firstDeaths}}</td>
+        </tr>
+    <hr/>
+        <tr *ngFor="let player of game.rounds[selected].teams[1].players">
+            <td>{{player.player}}</td>
+            <td>{{player.averageCombatScore}}</td>
+            <td>{{player.kills}}</td>
+            <td>{{player.deaths}}</td>
+            <td>{{player.assists}}</td>
+            <td>{{player.plusMinus}}</td>
+            <td>{{player.averageDamageRound}}</td>
+            <td>{{player.headShotPercentage}}</td>
+            <td>{{player.firstKills}}</td>
+            <td>{{player.firstDeaths}}</td>
+        </tr>
+
     </table>
 
 
