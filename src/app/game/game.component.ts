@@ -24,7 +24,7 @@ selected: number;
   ngOnInit(): void {
   }
 
-  setStats(){
-    
+  setStats(i: number){
+    this.selected = i;
   }
 }
