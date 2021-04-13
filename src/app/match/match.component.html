@@ -20,10 +20,10 @@
 
     <ol>
         <h1>"{{match.teams[0].name}}" {{match.score[0]}} - {{match.score[1]}} "{{match.teams[1].name}}"</h1>
-        <div *ngFor="let game of match.games; let i = index" (click)="setRound(i)">
-            {{i}}
+        <button type="button" *ngFor="let game of match.games; let i = index" (click)="setRound(i)">
+            MAP {{i+1}}
             <app-game [game]="game" [selected]="selected" *ngIf="i == selected"></app-game>
-        </div>
+        </button>
     </ol>
 </div>
 <div *ngIf="!match">
