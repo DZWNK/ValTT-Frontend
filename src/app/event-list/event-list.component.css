@@ -1,51 +1,41 @@
-
-
-.nav-link:hover {
-    outline: 1px solid rgb(0, 0, 0);
-    animation-name: example;
-          animation-duration: 2s;
-          animation-duration: 2s;
-  animation-iteration-count: 2;
-  animation-direction: alternate;
+.featured-events {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20em);
+    grid-gap: 0.1em;
 }
 
-h1 {
-  font-family: 'Exo', sans-serif;
+.event {
+    flex: 1;
+    max-width: fit-content;
+    margin: 5px;
+    padding: 5px;
 }
-        .flex-container {
-          font-family: 'Exo', sans-serif;  
-          display: flex;
-          background-color: DodgerBlue;
-          display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-        }
-        
-        .flex-container > div {
-          background-color: #1f545e;
-          border-radius: 1px;
-          
-          margin: 30x;
-          padding: 20px;
-          font-size: 40x;
-        }
-        @keyframes example {
-    from {background-color: rgb(255, 255, 255);}
-    to {background-color: rgb(203, 204, 152);}
-  }
 
-  
-
-p{
-  font-family: 'Exo', sans-serif;
-  padding: 9px;
-  margin: 10px;
-  text-shadow: 3px 3px 3px rgb(255, 255, 255);
+.event:hover {
+    cursor: pointer;
+    background-color: rgb(125, 187, 189);
 }
-.image{
-  height:40em; background-size:contain; width:auto;
-  background-image:url('../../assets/img/OMEN.png');
-  background-position:50% 10%;
-  background-repeat: no-repeat;
+
+.running {
+    border: 5px green solid;
+}
+
+.notRunning {
+    border: 5px red solid;
+}
+
+.verified-events {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    grid-gap: 0.1em;
+}
+
+.unverified-events {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    grid-gap: 0.1em;
+}
+
+.event-img {
+    width: 18em;
 }

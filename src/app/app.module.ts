@@ -23,6 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserManagerService } from './user-manager.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { EventCreationComponent } from './event-creation/event-creation.component';
+import { BracketComponent } from './bracket/bracket.component';
+import { BracketEditComponent } from './bracket-edit/bracket-edit.component';
 import { GameComponent } from './game/game.component';
 
 @NgModule({
@@ -43,6 +46,9 @@ import { GameComponent } from './game/game.component';
     FooterComponent,
     LoginComponent,
     SignupComponent,
+    EventCreationComponent,
+    BracketComponent,
+    BracketEditComponent,
     GameComponent
   ],
   imports: [

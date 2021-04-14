@@ -1,156 +1,33 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap" rel="stylesheet">
+<div *ngIf="match">
+    <ol>
+        <div class='topspace'>
+            <h1>{{match.event}}</h1>
+        </div>
+        <div class="container">
+            <div class="block">
+                <h1 class="bettext">BETTING</h1>
+                <a href="https://gg.bet/en/esports?sportIds[]=esports_valorant&tournamentIds[]=gin%3A798404b7-d1b4-48b0-8380-6e56aadbaf66">
+                    <div class="image"></div>
+                </a>
+                <p class="betp">{{match.teams[0].name}} vs {{match.teams[1].name}}</p>
+                <p class="betp">2.43 to 5</p>
+            </div>
+        </div>
+    </ol>
 
-
-
-
-  <ol>
-    <div class='topspace'>
-      <h1>{{tournamentname}}</h1>
-      <p class='one'>{{bracketname}}</p>
-  </div>
-<div class="container">
-  <div class="block">
-    <h1 class="bettext">BETTING</h1>
-     <a href="https://gg.bet/en">
-    <div class="image"></div>
-  </a>
-  <p class="betp">{{teamsplaying[0]}} vs {{teamsplaying[1]}}</p>
-  <p class="betp">2.43 to 5</p>
-  </div>
+    <ol>
+        <h1>"{{match.teams[0].name}}" {{match.score[0]}} - {{match.score[1]}} "{{match.teams[1].name}}"</h1>
+        <div *ngFor="let game of match.games; let i = index" style="display: inline;">
+            <button (click)="setRound(i)" style="width: 8em; height: 3em;">MAP {{i+1}}</button>
+        </div>
+        <div *ngFor="let game of match.games; let i = index">
+            <app-game [game]="game" [selected]="selected" *ngIf="i == selected"></app-game>
+        </div>
+    </ol>
 </div>
-</ol>
-
-
-<ol>
-<h1>{{teamsplaying[0]}} {{teammatchscore[0]}} - {{teammatchscore[1]}} {{teamsplaying[1]}}</h1>
-<h3 class="nav-link" routerLink="/game/1" routerLinkActive="active">MAP 1: {{mapsinmatch[0]}}</h3>
-<h3 class="nav-link" routerLink="/game/2" routerLinkActive="active">MAP 2: {{mapsinmatch[1]}}</h3>
-<h3 class="nav-link" routerLink="/game/3" routerLinkActive="active">MAP 3: {{mapsinmatch[2]}}</h3>
-<h3 class="nav-link" routerLink="/game/4" routerLinkActive="active">MAP 4: {{mapsinmatch[3]}}</h3>
-</ol>
-
-<ol>
-  <h1 routerLink="/team/{{teamsplaying[0]}}" routerLinkActive="active">{{teamsplaying[0]}}</h1>
-  <p class='one'>MATCH STATISTICS</p>
-  <table>
-      <tr>
-        <th>PLAYER</th>
-        <th>ACS</th>
-        <th>K</th>
-        <th>D</th>
-        <th>A</th>
-        <th>+/-</th>
-        <th>ADR</th>
-        <th>HS%</th>
-        <th>FK</th>
-        <th>FD</th>
-      </tr>
-  </table>
-
-
-  <li class="nav-link" routerLink="/player/{{team1[0]}}" routerLinkActive="active">{{team1[0]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats0, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-
-  <li class="nav-link" routerLink="/player/{{team1[1]}}" routerLinkActive="active">{{team1[1]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats1, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  
-  <li class="nav-link" routerLink="/player/{{team1[2]}}" routerLinkActive="active">{{team1[2]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats2, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  <li class="nav-link" routerLink="/player/{{team1[3]}}" routerLinkActive="active">{{team1[3]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats3, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  <li class="nav-link" routerLink="/player/{{team1[4]}}" routerLinkActive="active">{{team1[4]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats4, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-</ol>
-
-<ol>
-  <h1 routerLink="/team/{{teamsplaying[1]}}" routerLinkActive="active">{{teamsplaying[1]}}</h1>
-  <p class='one'>MATCH STATISTICS</p>
-  <table>
-      <tr>
-        <th>Player</th>
-        <th>ACS</th>
-        <th>K</th>
-        <th>D</th>
-        <th>A</th>
-        <th>+/-</th>
-        <th>ADR</th>
-        <th>HS%</th>
-        <th>FK</th>
-        <th>FD</th>
-      </tr>
-  </table>
-  <li class="nav-link" routerLink="/player/{{team2[0]}}" routerLinkActive="active">{{team2[0]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats5, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-
-  <li class="nav-link" routerLink="/player/{{team2[1]}}" routerLinkActive="active">{{team2[1]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats6, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  
-  <li class="nav-link" routerLink="/player/{{team2[2]}}" routerLinkActive="active">{{team2[2]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats7, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  <li class="nav-link" routerLink="/player/{{team2[3]}}" routerLinkActive="active">{{team2[3]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats8, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-  <li class="nav-link" routerLink="/player/{{team2[4]}}" routerLinkActive="active">{{team2[4]}}
-    <table>
-      <tr>
-        <th> </th>
-        <th *ngFor="let stats of matchstats9, let i = index">{{stats}} </th>
-      </tr>
-  </table>
-  </li>
-</ol>
+<div *ngIf="!match">
+    Loading...
+</div>

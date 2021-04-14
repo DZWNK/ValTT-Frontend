@@ -1,0 +1,114 @@
+<div class="bracket">
+    <ul class="round" *ngFor="let round of rounds; let i = index">
+        <ng-container *ngFor="let match of round; let ii = index">
+            <li class="group" *ngIf="(ii%2 == 0) && (i != (roundTotal -1))" [ngClass]="{a: match != (matches.length-1)}">
+                <div class="line">
+                    <div class="match" [ngClass]="{b: i != 0}">
+                        <div class="match-teams">
+                            <div *ngIf="i == 0">
+                                <input [(ngModel)]="matches[match].match.id" type="string" placeholder="Match ID" style="border: 1px solid; width: 100%; text-align: center;" />
+                                <div class="team">
+                                    <select (change)="selectedTeam($event, match, 0)" [value]="matches[match].match.teams[0].name" style="width: 85%;">
+                                        <option disabled value="" [selected]="!matches[match].match.teams[0].name"> Select Team </option>
+                                        <option *ngFor="let team of teams" [selected]="(team.name == matches[match].match.teams[0].name) && (team.name)">{{team.name}}</option>
+                                    </select>
+                                    <button (click)="win(match, 0, 0)" style="width:2em; background-color:limegreen">+</button>
+                                </div>
+                                <div class="team">
+                                    <select (change)="selectedTeam($event, match, 1)" [value]="matches[match].match.teams[1].name" style="width: 85%;">
+                                        <option disabled value="" [selected]="!matches[match].match.teams[1].name"> Select Team </option>
+                                        <option *ngFor="let team of teams" [selected]="(team.name == matches[match].match.teams[1].name) && (team.name)">{{team.name}}</option>
+                                    </select>
+                                    <button (click)="win(match, 1, 0)" style="width:2em; background-color:limegreen">+</button>
+                                </div>
+                                <input [(ngModel)]="matches[match].prize" type="string" placeholder="Match Prize" style="border: 1px solid; width: 100%; text-align: center;" />
+                            </div>
+                            <div *ngIf="i != 0">
+                                <input [(ngModel)]="matches[match].match.id" type="string" placeholder="Match ID" style="border: 1px solid; width: 100%; text-align: center;" />
+                                <div class="team">
+                                    <div>{{matches[match].match.teams[0].name || "Select Winner"}}</div>
+                                    <button (click)="win(match, 0, 0)" style="width:2em; background-color:limegreen">+</button>
+                                </div>
+                                <div class="team">
+                                    <div>{{matches[match].match.teams[1].name || "Select Winner"}}</div>
+                                    <button (click)="win(match, 1, 0)" style="width:2em; background-color:limegreen">+</button>
+                                </div>
+                                <input [(ngModel)]="matches[match].prize" type="string" placeholder="Match Prize" style="border: 1px solid; width: 100%; text-align: center;" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="match" [ngClass]="{b: i !=0 }">
+                        <div class="match-teams">
+                            <div *ngIf="i == 0">
+                                <input [(ngModel)]="matches[match+1].match.id" type="string" placeholder="Match ID" style="border: 1px solid; width: 100%; text-align: center;" />
+                                <div class="team">
+                                    <select placeholder=" Select Team " (change)=" selectedTeam($event, match+1, 0)" [value]=" matches[match+1].match.teams[0].name " style="width: 85%;">
+                                        <option disabled value="" [selected]="!matches[match+1].match.teams[0].name"> Select Team </option>
+                                        <option *ngFor="let team of teams" [selected]="(team.name == matches[match+1].match.teams[0].name) && (team.name)">{{team.name}}</option>
+                                    </select>
+                                    <button (click)=" win(match+1, 0, 1) " style=" width:2em; background-color:limegreen ">+</button>
+                                </div>
+                                <div class="team">
+                                    <select placeholder=" Select Team " (change)=" selectedTeam($event, match+1, 1) " [value]=" matches[match+1].match.teams[1].name " style="width: 85%;">
+                                        <option disabled value="" [selected]="!matches[match+1].match.teams[1].name"> Select Team </option>
+                                        <option *ngFor=" let team of teams " [selected]="(team.name == matches[match+1].match.teams[1].name) && (team.name)">{{team.name}}</option>
+                                    </select>
+                                    <button (click)=" win(match+1, 1, 1) " style=" width:2em; background-color:limegreen ">+</button>
+                                </div>
+                                <input [(ngModel)]="matches[match+1].prize" type="string" placeholder="Match Prize" style="border: 1px solid; width: 100%; text-align: center;" />
+                            </div>
+                            <div *ngIf=" i !=0 ">
+                                <input [(ngModel)]="matches[match].match.id" type="string" placeholder="Match ID" style="border: 1px solid; width: 100%; text-align: center;" />
+                                <div class="team">
+                                    <div>{{matches[match+1].match.teams[0].name || "Select Winner"}}</div>
+                                    <button (click)=" win(match+1, 0, 1) " style=" width:2em; background-color:limegreen ">+</button>
+                                </div>
+                                <div class="team">
+                                    <div>{{matches[match+1].match.teams[1].name || "Select Winner"}}</div>
+                                    <button (click)=" win(match+1, 1, 1) " style=" width:2em; background-color:limegreen ">+</button>
+                                </div>
+                                <input [(ngModel)]="matches[match+1].prize" type="string" placeholder="Match Prize" style="border: 1px solid; width: 100%; text-align: center;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="group" *ngIf="match==(matches.length-1)">
+                <div class="line">
+                    <div class="match" [ngClass]="{b: i !=0 }">
+                        <div class="match-teams">
+                            <div *ngIf="i == 0">
+                                <div *ngIf="i == 0">
+                                    <input [(ngModel)]="matches[match].match.id" type="string" placeholder="Match ID" style="border: 1px solid; width: 100%; text-align: center;" />
+                                    <div class="team">
+                                        <select (change)="selectedTeam($event, match, 0)" [value]=" matches[match].match.teams[0].name " style="width: 100%;">
+                                            <option disabled value="" [selected]="!matches[match].match.teams[0].name"> Select Team </option>
+                                            <option *ngFor="let team of teams" [selected]="(team.name == matches[match].match.teams[0].name) && (team.name)">{{team.name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="team">
+                                        <select (change)="selectedTeam($event, match, 1)" [value]=" matches[match].match.teams[1].name " style="width: 100%;">
+                                            <option disabled value="" [selected]="!matches[match].match.teams[1].name"> Select Team </option>
+                                            <option *ngFor=" let team of teams " [selected]="(team.name == matches[match].match.teams[1].name) && (team.name)">{{team.name}}</option>
+                                        </select>
+                                    </div>
+                                    <input [(ngModel)]="matches[match].prize" type="string" placeholder="Match Prize" style="border: 1px solid; width: 100%; text-align: center;" />
+                                </div>
+                            </div>
+                            <div *ngIf=" i !=0 ">
+                                <input [(ngModel)]="matches[match].match.id" type="string" placeholder="Match ID" style="border: 1px solid; width: 100%; text-align: center;" />
+                                <div class="team">
+                                    <div>{{matches[match].match.teams[0].name || "Select Winner"}}</div>
+                                </div>
+                                <div class="team">
+                                    <div>{{matches[match].match.teams[1].name || "Select Winner"}}</div>
+                                </div>
+                                <input [(ngModel)]="matches[match].prize" type="string" placeholder="Match Prize" style="border: 1px solid; width: 100%; text-align: center;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+</div>

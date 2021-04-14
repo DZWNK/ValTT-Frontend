@@ -1,10 +1,11 @@
-<h1>TEAMS COMPETING LIST:</h1>
-<h1>1:</h1>
-
-<h1>2:</h1>
-
-<h1>3:</h1>
-
-<h1>4:</h1>
-
-
+<ng-container *ngIf="!teams">
+    Loading...
+</ng-container>
+<h1 style="text-align: center;">Teams:</h1>
+<div *ngIf="teams" class="grid">
+    <div class="team" *ngFor="let team of teams; let i = index" (click)="viewTeam(i)">
+        <div (click)="viewTeam(i)">
+            {{team.name}}
+        </div>
+    </div>
+</div>

@@ -1,5 +1,7 @@
-* { box-sizing:border-box }
-    
+* {
+    box-sizing: border-box
+}
+
 h1 {
     font-family: 'Exo', sans-serif;
     font-size: 65px;
@@ -9,46 +11,46 @@ h1 {
 
 div.header {
     margin: 0px;
-        border: 1px solid black;
-        background-color: #6aa7b6dc;  
-    }
+    border: 1px solid black;
+    background-color: #6aa7b6dc;
+}
 
-    #navdiv {
-        float: left;
-        font-family: 'Exo', sans-serif;
-        border: 1px solid #121314;
-        border-top: 1px solid #2b2e30;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 0px;
-        overflow: hidden;
-        width:100%;
-        min-width: 650px;
-    }
+#navdiv {
+    float: left;
+    font-family: 'Exo', sans-serif;
+    border: 1px solid #121314;
+    border-top: 1px solid #2b2e30;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 0px;
+    overflow: hidden;
+    width: 100%;
+    min-width: 650px;
+}
 
 #navdiv ul {
-        margin:0;
-        padding:0;
-        list-style:none;
-    }
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
-    #navdiv ul li {
-        float:left;
-        padding: 16px 16px;
-        width: 14%;
-        border-left: 1px solid rgba(255, 255, 255, 0.05);
-        border-right: 1px solid rgba(0,0,0,0.2);   
-    }
+#navdiv ul li {
+    float: left;
+    padding: 16px 16px;
+    width: 14%;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
 
-    #navdiv ul li a {
-        display: block;
-        color:#000000;
-        text-decoration:none;
-        text-align: center;
-    }
+#navdiv ul li a {
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    text-align: center;
+}
 
-a { 
-    color:#000000;
+a {
+    color: #000000;
     outline: 1px solid black;
     padding: 2%;
     font-weight: 600;
@@ -64,22 +66,27 @@ a {
     background-color: #6aa7b6dc;
 }
 
-.pancontainer{
+.pancontainer {
     animation-name: panup;
     animation-duration: 6s;
     animation-iteration-count: 100;
     animation-direction: alternate;
- }
+}
 
 @keyframes colorchange {
-from{background-color:#6aa7b6}
-to {background-color: #6aa7b6dc}
+    from {
+        background-color: #6aa7b6
+    }
+    to {
+        background-color: #6aa7b6dc
+    }
 }
 
 @keyframes panup {
-    from {transform: translateY(100)}
-    to {transform: translateY(19)}
+    from {
+        transform: translateY(100)
+    }
+    to {
+        transform: translateY(19)
+    }
 }
-
-
-

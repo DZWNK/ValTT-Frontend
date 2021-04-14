@@ -1,33 +1,35 @@
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap" rel="stylesheet">
-
-
-<h1>FEATURED EVENTS LIST:</h1>
-    <div class="flex-container">
-        <div class="nav-link" routerLink="/event/1" routerLinkActive="active">SUPER TOURNY</div>
-        <div>VALO GAMERS EVENT</div>
-        <div>EXAMPLE NAME CUP</div>  
-      </div>
-
-<h1>RECENT EVENTS LIST:</h1>
-<div class="flex-container">
-    <div >ABC VALO</div>
-    <div>SHOOTERS CUP</div>
-    <div>AIM GAMERS TOURNAMENT</div>  
-  </div>
-
-  <style>
-    .flex-container {
-      display: flex;
-      background-color: DodgerBlue;
-    }
-    
-    .flex-container > div {
-      background-color: #f1f1f1;
-      margin: 10px;
-      padding: 20px;
-      font-size: 30px;
-    }
-    </style>
-
-    
+<button (click)="newEvent()">New Event</button>
+<div class="event-list-component">
+    <h3>To Do: Get Featured Events from Database</h3>
+    <h1>Featured Events</h1>
+    <div class="featured-events">
+        <div class="event running" (click)="loadEvent('TestEvent1')">
+            <h3 style="text-align: center;">Event1</h3>
+            <img src="../../assets/img/EventLogo.jpg" alt="Event1" class="event-img">
+        </div>
+        <div class="event notRunning" (click)="loadEvent('TestEvent2')">
+            <h3 style="text-align: center;">Event2</h3>
+            <img src="../../assets/img/EventLogo.jpg" alt="Event1" class="event-img">
+        </div>
+    </div>
+    <h1>Verified Events</h1>
+    <div class="verified-events">
+        <div class="event running" *ngFor="let event of verifiedEvents" (click)="loadEvent(event.id)">
+            <h3 style="text-align: center;">{{event.name}}</h3>
+            <img src="../../assets/img/EventLogo.jpg" alt="Event1" class="event-img">
+        </div>
+    </div>
+    <h1>Unverified Events</h1>
+    <div class="unverified-events">
+        <div class="event" *ngFor="let event of unverifiedEvents" (click)="loadEvent(event.id)">
+            <div [ngClass]="{'running': event.runninStatus,'notRunning': event.runninStatus}">
+                <h3 style="text-align: center;">{{event.name}}</h3>
+                <img src="../../assets/img/EventLogo.jpg" alt="Event1" class="event-img">
+            </div>
+        </div>
+        <div class="unverified-container">
+            <div class="event">Event 2</div>
+        </div>
+    </div>
+</div>
+<hr>

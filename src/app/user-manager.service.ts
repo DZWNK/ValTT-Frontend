@@ -13,8 +13,8 @@ import { Router } from '@angular/router'
 export class UserManagerService {
 
 
-  private API_URL_SIGNUP = "http://localhost:5000/auth/signup"
-  private API_URL_LOGIN = "http://localhost:5000/auth/login"
+  private API_URL_SIGNUP = "https://hidden-garden-36045.herokuapp.com/auth/signup"
+  private API_URL_LOGIN = "https://hidden-garden-36045.herokuapp.com/auth/login"
 
   //  private API_URL_SIGNUP = "https://valtt.herokuapp.com/auth/signup"
   //private API_URL_LOGIN = "https://valtt.herokuapp.com/auth/login"

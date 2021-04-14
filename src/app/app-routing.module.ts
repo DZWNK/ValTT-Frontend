@@ -15,20 +15,19 @@ import { TeamComponent } from './team/team.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './auth.guard';
+import { EventCreationComponent } from './event-creation/event-creation.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { 
-    path: 'favourites', 
-    component: FavouritesComponent,
-    canActivate: [AuthGuard]
-  },
+  { path: 'favourites', component: FavouritesComponent, canActivate: [AuthGuard]},
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'profile/:id/favourites', component: FavouritesComponent },
   { path: 'player/:id', component: PlayerComponent },
   { path: 'team/:id', component: TeamComponent },
-  { path: 'event/:id', component: EventComponent },
+  { path: 'event/:id', component: EventComponent},
+  { path: 'event/edit/:id', component: EventCreationComponent}, //, canActivate: [AuthGuard] 
+  { path: 'newEvent', component: EventCreationComponent},
   { path: 'game/:id', component: GameComponent },
   { path: 'match/:id', component: MatchComponent },
   { path: 'login', component: LoginComponent },

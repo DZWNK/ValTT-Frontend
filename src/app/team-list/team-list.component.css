@@ -1,4 +1,21 @@
-h1{
-    border: 1px black;
-    
-    }
+.team {
+    display: flex;
+    font-size: 1.5em;
+    border: 3px solid cadetblue;
+    height: 4em;
+    align-items: center;
+    justify-content: center;
+}
+
+.team:hover {
+    cursor: pointer;
+    background-color: rgb(125, 187, 189);
+}
+
+.grid {
+    margin: 2em;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(13em, 1fr));
+    grid-gap: 1em;
+}
