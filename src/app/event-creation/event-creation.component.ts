@@ -7,7 +7,6 @@ import { Subscription } from 'rxjs';
 import { EventManagerService } from '../event-manager.service';
 import { TeamManagerService } from '../team-manager.service';
 import { TeamPreview } from 'src/models/TeamPreview';
-import { date } from 'joi';
 
 @Component({
   selector: 'app-event-creation',
@@ -36,6 +35,7 @@ export class EventCreationComponent implements OnInit {
   ngOnInit(): void {
     this.show = -1;
     this.players = ['','','','','']
+    if(this.route.snapshot.params['id']){
     this.eventSub = this.eventManagerService.getEventById(this.route.snapshot.params['id']).subscribe(data=>{
       this.event = data;
       // console.log('Event:')
@@ -46,11 +46,19 @@ export class EventCreationComponent implements OnInit {
       // console.log('Teams:')
       // console.log(this.teams);
     });
+  } else{
+    this.event = new Event();
+    this.teams = [new TeamPreview('')];
+  }
   }
 
   ngOnDestroy(): void{
+    if (this.eventSub){
     this.eventSub.unsubscribe();
+    }
+    if (this.teamsSub){
     this.teamsSub.unsubscribe();
+    }
     if(this.tmpSub){
       this.tmpSub.unsubscribe();
     }
@@ -64,9 +72,9 @@ export class EventCreationComponent implements OnInit {
       pushLoser: 0,
       matchesPlayed: 0,
       matches: [
-          new MatchPreview("T1", "T2"),
-          new MatchPreview("T3", "T4"),
-          new MatchPreview("T5", "T6")
+          new MatchPreview('', ''),
+          new MatchPreview('', ''),
+          new MatchPreview('', '')
       ]
     });
   }
@@ -131,11 +139,12 @@ export class EventCreationComponent implements OnInit {
   }
 
   selectedTeam(event: any, index: number){
+    console.log("SELECTED TEAM")
     this.event.teams[index].teamName = event.target.value;
     let tmp: any;
     this.tmpSub = this.teamManagerService.getTeamByName(event.target.value).subscribe(data=>{
-      // console.log(`Subscription Resolve:`);
-      // console.log(data)
+       console.log(`Subscription Resolve:`);
+       console.log(data)
       tmp = data;
       if(tmp?.message){
         this.show = index;
@@ -162,8 +171,17 @@ export class EventCreationComponent implements OnInit {
   saveEvent(){
     console.log("SAVING EVENT")
     console.log(this.event);
-    this.eventManagerService.updateEvent(this.event._id, this.event).subscribe(data =>{
+      this.eventManagerService.updateEvent(this.event._id, this.event).subscribe(data =>{
       console.log("SAVING EVENT SUBSCRIPTION")
+      console.log(data)
+    })
+  }
+
+  createEvent(){
+    console.log("Creating Event")
+    console.log(this.event)
+    this.eventManagerService.createNewEvent(this.event).subscribe(data=>{
+      console.log("creat event subscription")
       console.log(data)
     })
   }

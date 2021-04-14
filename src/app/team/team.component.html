@@ -1,1 +1,10 @@
-<p>team works!</p>
+<div *ngIf="!team">Loading...</div>
+<div *ngIf="team">
+    <h1 style="text-align: center;">{{team.teamName}}</h1>
+    <div class="team" *ngFor="let player of team.currentRoster; let i = index" (click)="viewPlayer(i)">
+        <p class="txt">[Player Picture]</p>
+        <h3 class="txt">{{player.name}}</h3>
+        <p class="txt"> Player Id: {{player._id}}</p>
+        <p class="txt">This is where player stats will be shown</p>
+    </div>
+</div>

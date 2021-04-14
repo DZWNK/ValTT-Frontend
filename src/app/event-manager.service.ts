@@ -27,6 +27,11 @@ export class EventManagerService {
 
   updateEvent(id: string, event: Event): Observable<Event>{
     console.log('Saving Team');
+    console.log(event);
+    return this.http.patch<Event>(`${API_URL}/event/newEvent?id=${id}`, event);
+  }
+
+  createNewEvent(event: Event): Observable<Event>{
     return this.http.post<Event>(`${API_URL}/event/newEvent`, event);
   }
 

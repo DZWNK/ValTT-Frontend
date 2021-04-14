@@ -43,13 +43,13 @@ export class BracketEditComponent implements OnInit {
   }
   
   ngDoCheck(): void{
-    // console.log("----- Do Check -----");
-    // console.log(this.teams)
+    console.log("----- Do Check -----");
+    console.log(this.teams);
     const changes: IterableChanges<MatchPreview> = this._diff.diff(this.matches);
     if(changes){
       this.populateBracket();
     }
-    // console.log("----- Do Check End -----");
+    console.log("----- Do Check End -----");
     this.sendUpdate();
   }
 

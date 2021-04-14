@@ -38,7 +38,7 @@
 
 .match-teams:hover {
     cursor: pointer;
-    background-color: #00aaaa;
+    background-color: rgb(125, 187, 189);
 }
 
 .b::before {

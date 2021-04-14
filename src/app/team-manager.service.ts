@@ -21,7 +21,10 @@ export class TeamManagerService {
   }
 
   createTeam(team: Team){
-    console.log('-----------------------------------')
     return this.http.post<Team>(`${API_URL}/team/newTeam`, team);
+  }
+
+  getTeamById(id: string){
+    return this.http.get<Team>(`${API_URL}/team/teambyId?id=${id}`);
   }
 }

@@ -14,4 +14,19 @@ export class Event{
     winner: number;
     teams: Array<Team>;
     brackets: Array<Bracket>;
+
+    constructor(){
+        this._id = undefined;
+        this.name = '';
+        this.runningStatus = true;
+        this.dateCreated = new Date();
+        this.startDate = new Date();
+        this.endDate = new Date();
+        this.watchLink = '';
+        this.verified = true;
+        this.featured = false;
+        this.winner = 0;
+        this.teams = new Array(0);
+        this.brackets = new Array(0);
+    }
 }

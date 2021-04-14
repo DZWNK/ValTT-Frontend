@@ -21,17 +21,19 @@ export class MatchComponent implements OnInit {
   private matchSub: Subscription;
 
   ngOnInit(): void {
-    this.matchSub = this.matchManagerService.getMatchById(this.route.snapshot.params['id']).subscribe(data=>{
-      // this.match = data;
-      console.log("MATCH SUBSCRIPTION")
-      console.log(this.match);
-    });
+    // this.matchSub = this.matchManagerService.getMatchById(this.route.snapshot.params['id']).subscribe(data=>{
+    //   this.match = data;
+    //   let tmp: any = data;
+    //   if (tmp?.message){
+    //     this.match = new Match('7');
+    //   }
+    // });
     this.match = new Match('7');
     this.selected = 0;
   }
 
   ngOnDestroy(){
-  this.matchSub.unsubscribe();
+  // this.matchSub.unsubscribe();
   }
 
   setRound(index: number){

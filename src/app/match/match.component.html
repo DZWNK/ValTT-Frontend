@@ -9,7 +9,7 @@
         <div class="container">
             <div class="block">
                 <h1 class="bettext">BETTING</h1>
-                <a href="https://gg.bet/en">
+                <a href="https://gg.bet/en/esports?sportIds[]=esports_valorant&tournamentIds[]=gin%3A798404b7-d1b4-48b0-8380-6e56aadbaf66">
                     <div class="image"></div>
                 </a>
                 <p class="betp">{{match.teams[0].name}} vs {{match.teams[1].name}}</p>
@@ -20,10 +20,12 @@
 
     <ol>
         <h1>"{{match.teams[0].name}}" {{match.score[0]}} - {{match.score[1]}} "{{match.teams[1].name}}"</h1>
-        <button type="button" *ngFor="let game of match.games; let i = index" (click)="setRound(i)">
-            MAP {{i+1}}
+        <div *ngFor="let game of match.games; let i = index" style="display: inline;">
+            <button (click)="setRound(i)" style="width: 8em; height: 3em;">MAP {{i+1}}</button>
+        </div>
+        <div *ngFor="let game of match.games; let i = index">
             <app-game [game]="game" [selected]="selected" *ngIf="i == selected"></app-game>
-        </button>
+        </div>
     </ol>
 </div>
 <div *ngIf="!match">

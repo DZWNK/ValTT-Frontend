@@ -11,6 +11,11 @@
     padding: 5px;
 }
 
+.event:hover {
+    cursor: pointer;
+    background-color: rgb(125, 187, 189);
+}
+
 .running {
     border: 5px green solid;
 }

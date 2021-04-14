@@ -28,31 +28,33 @@
                     <option value='{{team.name}}'></option>
                 </div>
             </datalist>
+                <!-- Team Selection -->
                 <div class="team-selection" style="border: 3px dashed blueviolet; width: 25%; height: 95%; display: flex; flex-direction: column; align-items: center;">
                     <div style="overflow-y: scroll; height: 100%; width: 100%;">
                         <div *ngFor="let team of event.teams; let i = index">
-                            <input type="text" placeholder="New Team" list="teams" (change)="selectedTeam($event, i)" value="{{team.name}}" style="width: 85%;">
+                            <input type="text" placeholder="New Team" list="teams" (change)="selectedTeam($event, i)" [(ngModel)]="team.name" [ngModelOptions]="{standalone: true}" style="width: 85%;">
                             <button (click)="removeTeam(i)" style="width: 15%; height: 2em">-</button>
                         </div>
                     </div>
                     <button (click)="addTeam()" style="width: 100%">Add Team</button>
                 </div>
+                <!-- Centre Form -->
                 <div style="border: 3px dashed red; width: 50%;">
                     <p style="text-align: center;">Date Created: {{event.dateCreated}}</p>
                     <h2>
-                        <input type="string" [value]="event.name" style="width: 100%; text-align: center;" />
+                        <input type="string" [(ngModel)]="event.name" style="width: 100%; text-align: center;" [ngModelOptions]="{standalone: true}" />
                     </h2>
-                    <div class="grid">
-                        <label style="text-align: right; padding-right: 2em;">Start Date:</label>
-                        <input type="date" [value]="event.startDate" />
+                    <div class=" grid ">
+                        <label style="text-align: right; padding-right: 2em; ">Start Date:</label>
+                        <input type="date " [(ngModel)]="event.startDate " [ngModelOptions]="{standalone: true}" />
                     </div>
                     <div class="grid">
                         <label style="text-align: right; padding-right: 2em;">End Date:</label>
-                        <input type="date" [value]="event.endDate" />
+                        <input type="date" [(ngModel)]="event.endDate" [ngModelOptions]="{standalone: true}" />
                     </div>
-                    <div class="grid">
-                        <label style="text-align: right; padding-right: 2em;">Watch Link:</label>
-                        <input type="string" [value]="event.watchLink" />
+                    <div class=" grid ">
+                        <label style="text-align: right; padding-right: 2em; ">Watch Link:</label>
+                        <input type="string " [(ngModel)]="event.watchLink " [ngModelOptions]="{standalone: true}" />
                     </div>
                     <div class="grid">
                         <label style="text-align: right; padding-right: 2em;">winner:</label>
@@ -70,8 +72,10 @@
                         <button>Get Event Featured</button>
                     </div>
                 </div>
+                <!-- Buttons -->
                 <div style="border: 3px dashed green; position: absolute; width: 25%; left: 75%; display: flex; justify-content: center;">
-                    <button (click)="saveEvent()" style="height: 3em; width: 5em;">Save</button>
+                    <button *ngIf="event._id" (click)="saveEvent()" style="height: 3em; width: 5em;">Save</button>
+                    <button *ngIf="!event._id" (click)="createEvent()" style="height: 3em; width: 5em;">Create</button>
                 </div>
             </div>
             <div style="width: 100%;" *ngFor="let bracket of event.brackets; let i=index">

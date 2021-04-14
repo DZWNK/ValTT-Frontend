@@ -81,13 +81,13 @@
                                 <div *ngIf="i == 0">
                                     <input [(ngModel)]="matches[match].match.id" type="string" placeholder="Match ID" style="border: 1px solid; width: 100%; text-align: center;" />
                                     <div class="team">
-                                        <select (change)=" selectedTeam($event, match+1, 0)" [value]=" matches[match].match.teams[0].name " style="width: 100%;">
+                                        <select (change)="selectedTeam($event, match, 0)" [value]=" matches[match].match.teams[0].name " style="width: 100%;">
                                             <option disabled value="" [selected]="!matches[match].match.teams[0].name"> Select Team </option>
                                             <option *ngFor="let team of teams" [selected]="(team.name == matches[match].match.teams[0].name) && (team.name)">{{team.name}}</option>
                                         </select>
                                     </div>
                                     <div class="team">
-                                        <select (change)="selectedTeam($event, match+1, 1)" [value]=" matches[match].match.teams[1].name " style="width: 100%;">
+                                        <select (change)="selectedTeam($event, match, 1)" [value]=" matches[match].match.teams[1].name " style="width: 100%;">
                                             <option disabled value="" [selected]="!matches[match].match.teams[1].name"> Select Team </option>
                                             <option *ngFor=" let team of teams " [selected]="(team.name == matches[match].match.teams[1].name) && (team.name)">{{team.name}}</option>
                                         </select>

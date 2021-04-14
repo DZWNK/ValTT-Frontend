@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'team/:id', component: TeamComponent },
   { path: 'event/:id', component: EventComponent},
   { path: 'event/edit/:id', component: EventCreationComponent}, //, canActivate: [AuthGuard] 
+  { path: 'newEvent', component: EventCreationComponent},
   { path: 'game/:id', component: GameComponent },
   { path: 'match/:id', component: MatchComponent },
   { path: 'login', component: LoginComponent },

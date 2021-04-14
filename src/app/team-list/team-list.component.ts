@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Team } from 'src/models/Team';
 import { TeamPreview } from 'src/models/TeamPreview';
 import { TeamManagerService } from '../team-manager.service';
 
@@ -15,7 +15,7 @@ export class TeamListComponent implements OnInit {
 
   teamsSub: Subscription;
 
-  constructor(private teamManagerService: TeamManagerService) { }
+  constructor(private teamManagerService: TeamManagerService, private router: Router) { }
 
   ngOnInit(): void {
     this.teamsSub = this.teamManagerService.getVerifiedTeams().subscribe(data=>{
@@ -27,4 +27,8 @@ export class TeamListComponent implements OnInit {
     this.teamsSub.unsubscribe();
   }
 
+  viewTeam(i: number){
+    console.log(this.teams[i].id)
+    this.router.navigate(['/team', this.teams[i].id]);
+  }
 }

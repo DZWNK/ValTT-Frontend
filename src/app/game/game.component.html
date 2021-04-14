@@ -3,22 +3,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap" rel="stylesheet">
 
 <ol class='topspace'>
-    <h2 class='one'></h2>
+    <h2 class='one'>Game {{selected + 1}}</h2>
 </ol>
-
 <ol>
     <h1>ROUND OVERVIEW</h1>
     <div class="grid-container">
-        <div *ngFor="let round of game.rounds; let i = index" (click)="setStats(i)">{{i+1}}
-            <p *ngIf= "round.winner == 'CLOUD 9'" class="image"></p>
-            <p *ngIf= "round.winner == 'MIBR'" class="image2"></p>
+        <div [ngClass]="{rClass: true, pushed: i === roundSelect}" *ngFor="let round of game.rounds; let i = index" (click)="setStats(i)">
+            {{i+1}}
+            <p *ngIf="round.winner == 'CLOUD 9'" class="image"></p>
+            <p *ngIf="round.winner == 'MIBR'" class="image2"></p>
             <p class="roundText">{{round.winType}}</p>
         </div>
     </div>
 </ol>
-<h1>ROUND: {{selected + 1}}</h1>
+<h1>ROUND: {{roundSelect + 1}}</h1>
 <ol>
     <h1>MAP STATISTICS</h1>
+    <h3 class="rClass" style="text-align: center;" (click)="viewTeam(game.rounds[roundSelect].teams[0].id)">{{game.rounds[roundSelect].teams[0].teamName}}</h3>
     <table>
         <tr>
             <th>Player</th>
@@ -32,9 +33,7 @@
             <th>FK</th>
             <th>FD</th>
         </tr>
-
-        <tr *ngFor="let player of game.rounds[selected].teams[0].players">
-
+        <tr *ngFor="let player of game.rounds[roundSelect].teams[0].players" (click)="viewTeam(game.rounds[roundSelect].teams[0].id)">
             <td>{{player.player}}</td>
             <td>{{player.averageCombatScore}}</td>
             <td>{{player.kills}}</td>
@@ -46,8 +45,23 @@
             <td>{{player.firstKills}}</td>
             <td>{{player.firstDeaths}}</td>
         </tr>
+    </table>
     <hr/>
-        <tr *ngFor="let player of game.rounds[selected].teams[1].players">
+    <h3 class="rClass" style="text-align: center;" (click)="viewTeam(game.rounds[roundSelect].teams[1].id)">{{game.rounds[roundSelect].teams[1].teamName}}</h3>
+    <table>
+        <tr>
+            <th>Player</th>
+            <th>ACS</th>
+            <th>K</th>
+            <th>D</th>
+            <th>A</th>
+            <th>+/-</th>
+            <th>ADR</th>
+            <th>HS%</th>
+            <th>FK</th>
+            <th>FD</th>
+        </tr>
+        <tr *ngFor="let player of game.rounds[roundSelect].teams[1].players" (click)="viewTeam(game.rounds[roundSelect].teams[1].id)">
             <td>{{player.player}}</td>
             <td>{{player.averageCombatScore}}</td>
             <td>{{player.kills}}</td>
