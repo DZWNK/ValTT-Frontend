@@ -37,7 +37,5 @@ export class EventListComponent implements OnInit {
     this.router.navigate(['/event', id]);
   }
 
-  newEvent(){
-    this.router.navigate(['/newEvent']);
-  }
+
 }
